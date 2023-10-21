@@ -1,0 +1,26 @@
+{
+    "header": {
+      "menu": "Menu",
+      "home": "Início",
+      "profile": "Perfil",
+      "liked": "Favoritos",
+      "shoppingcart": "Carrinho",
+      "search": "Pesquisar"
+    },
+    "footer": {
+      "language": "Idioma",
+      "contact": "Contato",
+      "aboutUs": "Sobre Nós",
+      "links": "Links",
+      "mode": "Modo"
+    },
+    "loginPortal": {
+      "login": "Login",
+      "email": "E-mail",
+      "password": "Senha",
+      "signIn": "Entrar",
+      "forgotPassword": "Esqueci a senha?",
+      "signUp": "Cadastre-se"
+    }
+  }
+  

@@ -1,0 +1,26 @@
+{
+    "header": {
+      "menu": "Menu",
+      "home": "Home",
+      "profile": "Profile",
+      "liked": "Liked",
+      "shoppingcart": "Shopping Cart",
+      "search": "Search"
+    },
+    "footer": {
+      "language": "Language",
+      "contact": "Contact",
+      "aboutUs": "About Us",
+      "links": "Links",
+      "mode": "Mode"
+    },
+    "loginPortal": {
+      "login": "Login",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign In",
+      "forgotPassword": "Forgot Password?",
+      "signUp": "Sign Up"
+    }
+  }
+  
