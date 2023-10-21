@@ -7,13 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --fix",
-    "preview": "vite preview",
-    "extract": "lingui extract",
-    "compile": "lingui compile"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@lingui/cli": "^4.5.0",
-    "@lingui/macro": "^4.5.0",
     "@phosphor-icons/react": "^2.0.10",
     "bootstrap": "^5.3.2",
     "i18next": "^23.6.0",

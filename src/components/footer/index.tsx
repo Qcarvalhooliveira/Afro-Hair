@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import {translationData} from '../translations/translationData.ts';
 import {
   Clock,
   EnvelopeSimple,
@@ -20,7 +22,7 @@ import {
   Links,
   Mode,
 } from './styles'
-import { HighHeel } from '@phosphor-icons/react'
+import { HighHeel } from '@phosphor-icons/react';
 
 interface ThemesType {
   toggleDarkTheme: () => void
@@ -33,6 +35,11 @@ export function Footer({
   toggleBarbieTheme,
   toggleLightTheme,
 }: ThemesType) {
+  const [language, setLanguage] = useState('en')
+  const changeLanguage = (newLanguage: string) => {
+    setLanguage(newLanguage);
+  };
+  const translation = translationData[language]
   return (
     <FooterContainer>
       <Language>
@@ -40,7 +47,7 @@ export function Footer({
         <button>
           <img src={brasil} alt="brazil flag" /> <p>Português</p>
         </button>
-        <button>
+        <button onClick={() => changeLanguage('fr')}>
           <img src={france} alt="france flag" /> <p>Français</p>
         </button>
         <button>
@@ -52,7 +59,7 @@ export function Footer({
         <section>
           <div>
             <Clock size={22} />
-            <p>From Monday to Friday, from 9:00 AM to 5:30 PM.</p>
+            <p>{translation.footer.horaire}</p>
           </div>
           <div>
             <div>

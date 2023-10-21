@@ -4,12 +4,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DropdownContainer, MenuItem } from './styles.tsx';
 
-
 interface DropdownMenuProps {
   isOpen: boolean;
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ isOpen }) => {
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({ isOpen }) => {
   const navigate = useNavigate();
 
   const handleCategoryClick = (category: string) => {
@@ -28,5 +27,3 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ isOpen }) => {
     </DropdownContainer>
   );
 };
-
-export default DropdownMenu;
