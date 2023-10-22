@@ -20,8 +20,11 @@ interface TranslationData {
         mode: "Mode",
         horaire: "Monday to Friday, from 9am to 5pm.",
       },
-      // ...
+      header: {
+          home: "Home"
+      }
     },
+
     fr: {
       footer: {
         language: "Langue",
