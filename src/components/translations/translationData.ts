@@ -1,4 +1,4 @@
-interface TranslationData {
+export interface TranslationData {
     footer: {
       language: string;
       contact: string;
@@ -13,6 +13,27 @@ interface TranslationData {
     };
    header: {
     home: string;
+    liked: string;
+    menu: string;
+    profile: string;
+    shoppingcart: string;
+    search: string;
+   }
+   LoginPortal: {
+    signUp: string;
+    singIn: string,
+    password: string;
+    login: string;
+    forgotPassword: string;
+    email: string;
+   }
+   dropdownMenu: {
+    conditioner: string;
+    leaveIn: string;
+    kit: string;
+    treatment: string;
+    shampoo: string;
+
    }
   }
   
@@ -28,13 +49,30 @@ interface TranslationData {
         aboutUsDescription: "Welcome to Afrohair, your premier destination for high-quality hair products tailored to the unique needs of afro-textured hair. We are passionate about celebrating the beauty and diversity of natural hair, and our mission is to provide a curated selection of products that enhance and nourish afro hair.",
         darkMode: "Dark Mode",
         lightMode: "Light Mode",
-        barbieMode: "Barbie Mode",
-
-
-        
+        barbieMode: "Barbie Mode",      
       },
+      LoginPortal: {
+        signUp: "Sing up",
+        singIn: "Sing in",
+        password: "Password",
+        login: "Login",
+        forgotPassword: "Forgot Password?",
+        email: "Email",
+    },
       header: {
-          home: "Home"
+          home: "Home",
+          liked: "Liked",
+          menu: "Menu",
+          profile: "Profile",
+          shoppingcart: "Shopping Cart",
+          search: "Search",
+      },
+      dropdownMenu: {
+        conditioner: "Conditioner",
+        leaveIn: "Leave-In Conditioner",
+        kit: "Kit",
+        treatment: "Treatment Cream",
+        shampoo: "Shampoo",
       }
     },
 
@@ -51,13 +89,33 @@ interface TranslationData {
         lightMode: "Mode Lumineux",
         barbieMode: "Mode Barbie",
     },
+    LoginPortal: {
+        signUp: "S'inscrire",
+        singIn: "Se connecter",
+        password: "Mot de passe",
+        login: "Se connecter",
+        forgotPassword: "Mot de passe oublie?",
+        email: "E-mail",
+    },
       header: {
-          home: "Accueil"
+          home: "Accueil",
+          liked: "Favoris",
+          menu: "Menu",
+          profile: "Profil",
+          shoppingcart: "Panier",
+          search: "Rechercher",
+      },
+      dropdownMenu: {
+        conditioner: "Après-shampoing",
+        leaveIn: "Après-shampoing sans rinçage",
+        kit: "Coffret",
+        treatment: "Creme de traitement",
+        shampoo: "Shampoing",
       }
     },
     pt: {
         footer: {
-            language: "idioma",
+            language: "Idioma",
             contact: "Contato",
             aboutUs: "Sobre nos",
             links: "Links",
@@ -68,8 +126,29 @@ interface TranslationData {
             lightMode: "Modo Claro",
             barbieMode: "Modo Barbie",
           },
+          LoginPortal: {
+            signUp: "Cadastre-se",
+            singIn: "Entrar",
+            password: "Senha",
+            login: "Entrar",
+            forgotPassword: "Esqueceu a senha?",
+            email: "E-mail",
+
+        },
           header: {
-              home: "Início"
+              home: "Início",
+              liked: "Favoritos",
+              menu: "Menu",
+              profile: "Perfil",
+              shoppingcart: "Carrinho",
+              search: "Pesquisar",
+          },
+          dropdownMenu: {
+            conditioner: "Condicionador",
+            leaveIn: "Creme para Pentear",
+            kit: "Kit",
+            treatment: "Creme de tratamento",
+            shampoo: "Shampoo",
           }
     }
   };

@@ -3,6 +3,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DropdownContainer, MenuItem } from './styles.tsx';
+import { useLanguage } from '../../context/LanguageContext.tsx';
+
 
 interface DropdownMenuProps {
   isOpen: boolean;
@@ -17,13 +19,15 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({ isOpen }) => {
 
   if (!isOpen) return null;
 
+  const { translation } = useLanguage();
+
   return (
     <DropdownContainer>
-      <MenuItem onClick={() => handleCategoryClick('Conditioner')}>Conditioner</MenuItem>
-      <MenuItem onClick={() => handleCategoryClick('Leave-In')}>Leave-In Conditioner</MenuItem>
-      <MenuItem onClick={() => handleCategoryClick('Kit')}>Kit</MenuItem>
-      <MenuItem onClick={() => handleCategoryClick('Treatment')}>Treatment Cream</MenuItem>
-      <MenuItem onClick={() => handleCategoryClick('Shampoo')}>Shampoo</MenuItem>
+      <MenuItem onClick={() => handleCategoryClick('Conditioner')}>{translation.dropdownMenu.conditioner}</MenuItem>
+      <MenuItem onClick={() => handleCategoryClick('Leave-In')}>{translation.dropdownMenu.leaveIn}</MenuItem>
+      <MenuItem onClick={() => handleCategoryClick('Kit')}>{translation.dropdownMenu.kit}</MenuItem>
+      <MenuItem onClick={() => handleCategoryClick('Treatment')}>{translation.dropdownMenu.treatment}</MenuItem>
+      <MenuItem onClick={() => handleCategoryClick('Shampoo')}>{translation.dropdownMenu.shampoo}</MenuItem>
     </DropdownContainer>
   );
 };

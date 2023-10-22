@@ -6,6 +6,7 @@ import logo from '../../assets/afro_hair_logo.png';
 import { User, Heart, Handbag, List, MagnifyingGlass } from 'phosphor-react';
 import  { DropdownMenu }  from '../dropdownMenu/index.tsx';
 import LoginPortal from '../LoginPortal/index.tsx';
+import { useLanguage } from '../../context/LanguageContext.tsx';
 
 
 export function Header() {
@@ -37,28 +38,30 @@ export function Header() {
 
   const portalRoot = document.getElementById('portal-root');
 
+  const { translation } = useLanguage();
+
 
     return (
     <HeaderContainer>
-      <button className="menu" title="menu" onClick={handleMenuClick}>
+      <button className="menu" title={translation.header.menu} onClick={handleMenuClick}>
         <List size={24} />
       </button>
-      <button className="Home" onClick={handleLogoClick} title="Home">
+      <button className="Home" onClick={handleLogoClick} title={translation.header.home}>
         <img src={logo} alt="afrohairLogo" />
       </button>
       <div>
-        <button title="profile" onClick={handleUserIconClick}>
+        <button title={translation.header.profile} onClick={handleUserIconClick}>
           <User size={24} />{' '}
         </button>
-        <button title="liked">
+        <button title={translation.header.liked}>
           <Heart size={24} />
         </button>
-        <button onClick={handleShoppingCartClick} title="shoppingcart">
+        <button onClick={handleShoppingCartClick} title={translation.header.shoppingcart}>
           <Handbag size={24} />
         </button>
       </div>
       <form action="">
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder={translation.header.search} />
         <MagnifyingGlass size={12} className="search-icon" />
       </form>
 
