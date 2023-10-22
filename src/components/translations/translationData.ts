@@ -7,7 +7,9 @@ interface TranslationData {
       mode: string;
       horaire: string
     };
-    // Outras chaves e traduções aqui
+   header: {
+    home: string;
+   }
   }
   
   export const translationData: Record<string, TranslationData> = {
@@ -34,7 +36,9 @@ interface TranslationData {
         mode: "Mode",
         horaire: "Du lundi au vendredi, de 9h00 à 17h30.",
       },
-      // ...
+      header: {
+          home: "Accueil"
+      }
     },
     // ...
   };
