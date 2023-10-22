@@ -15,7 +15,7 @@ export function Product() {
   return (
     <ProductContainer>
       <div className="imageProduct">
-        <img src={products[0].image} alt={products[0].name} />
+        <img src={products[5].image} alt={products[5].name} />
       </div>
       <div className="descriptionProduct">
         <h1>
@@ -31,7 +31,7 @@ export function Product() {
             />
           ))}
         </div>
-        <h3>{'$ ' + products[0].price}</h3>
+        <h3>{'$ ' + products[5].price}</h3>
         <h4>Features</h4>
         <ul>
           <li>

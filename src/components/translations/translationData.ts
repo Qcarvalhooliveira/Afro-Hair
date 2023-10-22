@@ -33,7 +33,32 @@ export interface TranslationData {
     kit: string;
     treatment: string;
     shampoo: string;
-
+   }
+   homePage: {
+    recommendations: string;
+    seeAll:string;
+    newArrivals: string;
+   }
+   checkout: {
+    order: string;
+    delivery: string;
+    address: string;
+    cep: string;
+    cep1: string;
+    validCep: string;
+    street: string;
+    validStreet: string;
+    number: string;
+    validNumber: string;
+    complement: string;
+    neighborhood: string;
+    validNeighborhood: string;
+    city: string;
+    validCity: string;
+    products: string;
+    itens: string;
+    confirm: string;
+    
    }
   }
   
@@ -73,6 +98,32 @@ export interface TranslationData {
         kit: "Kit",
         treatment: "Treatment Cream",
         shampoo: "Shampoo",
+      },
+      homePage: {
+        recommendations: "Recommendations",
+        seeAll: "See All",
+        newArrivals: "New Arrivals",
+      },
+      checkout: {
+        order: "Complete your order",
+        delivery: "Delivery Address",
+        address: "Provide the address where you want to receive your order",
+        cep: "ZIP",
+        cep1: "ZIP Code",
+        validCep: "Please write a valid ZIP Code",
+        street: "Street",
+        validStreet: "Please write a valid Street",
+        number: "Number",
+        validNumber: "Please write a valid Number",
+        complement: "Complement",
+        neighborhood: "Neighborhood",
+        validNeighborhood: "Please write a valid Neighborhood",
+        city: "City",
+        validCity: "Please write a valid City",
+        products: "Products Selected",
+        itens: "Total Items",
+        confirm: "CONFIRM ORDER",
+        
       }
     },
 
@@ -111,6 +162,33 @@ export interface TranslationData {
         kit: "Coffret",
         treatment: "Creme de traitement",
         shampoo: "Shampoing",
+      },
+      homePage: {
+        recommendations: "Recommandations",
+        seeAll: "Voir tout",
+        newArrivals: "Nouvelles Arrivées",
+      },
+      checkout: {
+        order: "Completez votre commande",
+        delivery: "Adresse de livraison",
+        address: "Indiquez l'adresse où vous souhaitez recevoir votre commande",
+        cep: "Code",
+        cep1: "Code postal",
+        validCep: "Veuillez saisir un code postal valide",
+        street: "Rue",
+        validStreet: "Veuillez saisir une rue valide",
+        number: "Numero",
+        validNumber: "Veuillez saisir un numero valide",
+        complement: "Complément",
+        neighborhood: "Quartier",
+        validNeighborhood: "Veuillez saisir un quartier valide",
+        city: "Ville",
+        validCity: "Veuillez saisir une ville valide",
+        products: "Produits sélectionnés",
+        itens: "Total des articles",
+        confirm: "CONFIRMER VOTRE COMMANDE",
+             
+
       }
     },
     pt: {
@@ -149,6 +227,31 @@ export interface TranslationData {
             kit: "Kit",
             treatment: "Creme de tratamento",
             shampoo: "Shampoo",
+          },
+          homePage: {
+            recommendations: "Recomendações",
+            seeAll: "Ver tudo",
+            newArrivals: "Novos produtos",
+          },
+          checkout: {
+            order: "Complete seu pedido",
+            delivery: "Endereço de Entrega",
+            address: "Indique o endereço onde deseja receber seu pedido",
+            cep: "CEP",
+            cep1: "CEP",
+            validCep: "Por favor, digite um CEP válido",
+            street: "Rua",
+            validStreet: "Por favor, digite uma rua valida",
+            number: "Número",
+            validNumber: "Por favor, digite um número válido",
+            complement: "Complemento",
+            neighborhood: "Bairro",
+            validNeighborhood: "Por favor, digite um bairro válido",
+            city: "Cidade",
+            validCity: "Por favor, digite uma cidade valida",
+            products: "Produtos Selecionados",
+            itens: "Total dos Itens",
+            confirm: "CONFIRMAR PEDIDO",
           }
     }
   };

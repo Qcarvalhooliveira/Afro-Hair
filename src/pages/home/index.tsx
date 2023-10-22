@@ -4,6 +4,7 @@ import 'keen-slider/keen-slider.min.css'
 import { HighlightSection, HomeContainer } from './styles'
 import { ProductCircle } from '../../components/productCircle/index'
 import { ProductsContext } from '../../context/productContext'
+import { useLanguage } from '../../context/LanguageContext'
 
 export const stripeTest = import.meta.env
 export function Home() {
@@ -31,6 +32,8 @@ export function Home() {
     }
   }, [slider])
 
+  const { translation } = useLanguage();
+
   return (
     <HomeContainer>
       <div ref={sliderRef} className="keen-slider">
@@ -48,8 +51,8 @@ export function Home() {
       <div className="highligths">
         <HighlightSection>
           <div className="highlightTitles">
-            <h2>Best Sales</h2>
-            <button>See All</button>
+            <h2>{translation.homePage.recommendations}</h2>
+            <button>{translation.homePage.seeAll}</button>
           </div>
           <div className="highlightImages">
             {products.slice(4, 7).map((product) => (
@@ -64,8 +67,8 @@ export function Home() {
 
         <HighlightSection>
           <div className="highlightTitles">
-            <h2>New Arrivals</h2>
-            <button>See All</button>
+            <h2>{translation.homePage.newArrivals}</h2>
+            <button>{translation.homePage.seeAll}</button>
           </div>
           <div className="highlightImages">
             {products.slice(7, 10).map((product) => (
