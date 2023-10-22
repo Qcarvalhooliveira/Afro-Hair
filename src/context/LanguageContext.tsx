@@ -1,21 +1,34 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, FC, useContext, useState, ReactNode } from 'react';
 
-const LanguageContext = createContext<any>();
+interface LanguageContextType {
+  language: string;
+  changeLanguage: (newLanguage: string) => void;
+}
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState('Português'); // Defina o idioma padrão
+type LanguageProviderProps = {
+  children: ReactNode;
+};
 
-  const switchLanguage = (newLanguage) => {
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
+
+export const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
+  const [language, setLanguage] = useState('en');
+
+  const changeLanguage = (newLanguage: string) => {
     setLanguage(newLanguage);
   };
 
   return (
-    <LanguageContext.Provider value={{ language, switchLanguage }}>
+    <LanguageContext.Provider value={{ language, changeLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
-}
-
-export function useLanguage() {
-  return useContext(LanguageContext);
-}
+};

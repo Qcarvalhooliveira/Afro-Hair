@@ -8,6 +8,8 @@ import { Header } from './components/header/index.tsx'
 import { Footer } from './components/footer/index.tsx'
 import { Router } from './routes.tsx'
 import { BrowserRouter } from 'react-router-dom'
+import { LanguageProvider } from './context/LanguageContext.tsx'
+
 
 export function App() {
   const [theme, setTheme] = useState(BarbieTheme)
@@ -15,6 +17,7 @@ export function App() {
   const toggleLightTheme = () => setTheme(LightTheme)
   const toggleBarbieTheme = () => setTheme(BarbieTheme)
   return (
+    <LanguageProvider>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
@@ -27,5 +30,6 @@ export function App() {
         toggleBarbieTheme={toggleBarbieTheme}
       />
     </ThemeProvider>
+    </LanguageProvider>
   )
 }
