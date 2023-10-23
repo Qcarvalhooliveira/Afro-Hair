@@ -1,14 +1,14 @@
-import { useContext, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import { HighlightSection, HomeContainer } from './styles'
 import { ProductCircle } from '../../components/productCircle/index'
-import { ProductsContext } from '../../context/productContext'
+import {  useProducts } from '../../context/productContext'
 import { useLanguage } from '../../context/LanguageContext'
 
 export const stripeTest = import.meta.env
 export function Home() {
-  const products = useContext(ProductsContext) // pega os produtos por context
+  const {products} = useProducts() // pega os produtos por context
   const slideInterval = 2000
   const [_currentSlide, setCurrentSlide] = useState(0)
   const [sliderRef, slider] = useKeenSlider({ loop: true })

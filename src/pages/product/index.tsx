@@ -1,12 +1,12 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { ProductContainer } from './styles'
 import Star from '../../components/star/index.tsx'
-import { ProductsContext } from '../../context/productContext'
+import { useProducts } from '../../context/productContext'
 
 const items: number[] = [...(new Array(5).keys() as any)]
 
 export function Product() {
-  const products = useContext(ProductsContext)
+  const {products, addToCart} = useProducts()
   const [activeIndex, setActiveIndex] = useState<number>()
 
   const onclickStar = (index: number) => {
@@ -35,25 +35,25 @@ export function Product() {
         <h4>Features</h4>
         <ul>
           <li>
-            <b>INDICATION:</b> <br /> {products[0].indication}
+            <b>INDICATION:</b> <br /> {products[5].indication}
           </li>
           <li>
-            <b>ACTION:</b> <br /> {products[0].action}
+            <b>ACTION:</b> <br /> {products[5].action}
           </li>
           <li>
             <b>ACTIVE INGREDIENT:</b>
-            <br /> {products[0].activeIngredients}
+            <br /> {products[5].activeIngredients}
           </li>
           <li>
             <b>BENEFITS:</b> <br />
-            {products[0].benefits}
+            {products[5].benefits}
           </li>
           <li>
-            <b>COMPOSITION:</b> <br /> {products[0].composition}
+            <b>COMPOSITION:</b> <br /> {products[5].composition}
           </li>
         </ul>
         <div className="buttonContainer">
-          <button> Add to Cart</button>
+          <button onClick={() => addToCart(products[5])}> Add to Cart</button>
           <button> Buy Now</button>
         </div>
       </div>

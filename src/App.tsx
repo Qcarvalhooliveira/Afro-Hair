@@ -9,6 +9,7 @@ import { Footer } from './components/footer/index.tsx'
 import { Router } from './routes.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext.tsx'
+import { ProductsProvider } from './context/productContext.tsx'
 
 
 export function App() {
@@ -18,6 +19,7 @@ export function App() {
   const toggleBarbieTheme = () => setTheme(BarbieTheme)
   return (
     <LanguageProvider>
+      <ProductsProvider>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
@@ -30,6 +32,7 @@ export function App() {
         toggleBarbieTheme={toggleBarbieTheme}
       />
     </ThemeProvider>
+    </ProductsProvider>
     </LanguageProvider>
   )
 }

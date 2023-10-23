@@ -14,8 +14,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
-  const isUserLoggedIn = true; // Assume you have a way to check if the user is logged in
-
+  const isUserLoggedIn = true; // Para fazer mais tarde, verificar o login
   const handleLogoClick = () => {
     navigate('/');
   };

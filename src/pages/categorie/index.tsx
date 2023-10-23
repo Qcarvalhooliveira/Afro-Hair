@@ -1,11 +1,10 @@
 import { CategorieContainer, ProductCard, ProductImage, ProductInfo, ProductDescription, ProductPrice } from './styles';
 import { useLocation } from 'react-router-dom'; 
-import { ProductsContext } from '../../context/productContext';
-import { useContext } from 'react';
+import { useProducts } from '../../context/productContext';
 import { Handbag } from 'phosphor-react';
 
 export function Categorie() {
-  const products = useContext(ProductsContext);
+  const {products, addToCart} = useProducts();
   const location = useLocation();
 
   const categoryName = location.pathname.split('/').slice(-1)[0];
@@ -25,7 +24,7 @@ export function Categorie() {
             <ProductInfo>
               <ProductDescription>{product.description}</ProductDescription>
               <ProductPrice>${product.price}</ProductPrice>
-              <button onClick={() => products.addToCart(product)}>
+              <button onClick={() => addToCart(product)}>
                 Add to cart <span className="icon"><Handbag size={18}/></span>
               </button>
             </ProductInfo>
