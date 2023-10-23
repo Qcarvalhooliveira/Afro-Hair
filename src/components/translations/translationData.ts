@@ -58,7 +58,7 @@ export interface TranslationData {
     products: string;
     itens: string;
     confirm: string;
-    
+    total: string;
    }
   }
   
@@ -123,6 +123,7 @@ export interface TranslationData {
         products: "Products Selected",
         itens: "Total Items",
         confirm: "CONFIRM ORDER",
+        total: "Total"
         
       }
     },
@@ -187,6 +188,7 @@ export interface TranslationData {
         products: "Produits sélectionnés",
         itens: "Total des articles",
         confirm: "CONFIRMER VOTRE COMMANDE",
+        total: "Total"
              
 
       }
@@ -252,6 +254,7 @@ export interface TranslationData {
             products: "Produtos Selecionados",
             itens: "Total dos Itens",
             confirm: "CONFIRMAR PEDIDO",
+            total: "Total"
           }
     }
   };

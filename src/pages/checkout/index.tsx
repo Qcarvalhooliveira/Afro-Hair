@@ -10,14 +10,20 @@ export function Checkout() {
   const { translation } = useLanguage();
   const {cart} = useProducts()
 
-  const calculateTotal = () => {
+  const calculateTotalOfItens = () => {
+    let total = 0;
+    for (const item of cart) {
+      total += item.quantity;
+    }
+    return total;
+  };
+  const CalculateTotalPrice = () => {
     let total = 0;
     for (const item of cart) {
       total += item.price * item.quantity;
     }
     return total;
-  };
-
+  } 
   return (
     <CheckoutContainer>
       <div className="userPaymentAndDeliveryInfos">
@@ -142,7 +148,9 @@ export function Checkout() {
           <div className="addition">
             <p>
               {translation.checkout.itens}
-              <span>{cart.length}</span> // verrificar que na verdade é o quantity de cada um somado.
+              <span>{calculateTotalOfItens()}</span>
+              {translation.checkout.total}
+              <span>€ {CalculateTotalPrice()}</span>
             </p>
           </div>
 
