@@ -1,12 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-export interface StyledCounterProps {
-  isInCheckout?: boolean
-}
-
-export const StyledCounter = styled.div<StyledCounterProps>`
+export const StyledCounter = styled.div`
   width: 4.5rem;
-  height: 2.375rem;
+  height: 2rem;
 
   display: flex;
   justify-content: center;
@@ -57,9 +53,4 @@ export const StyledCounter = styled.div<StyledCounterProps>`
     }
   }
 
-  ${(props) =>
-    props.isInCheckout &&
-    css`
-      height: 2rem;
-    `}
 `

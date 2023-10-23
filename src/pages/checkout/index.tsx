@@ -1,12 +1,22 @@
 import { MapPinLine } from 'phosphor-react'
 import { CheckoutContainer } from './styles'
 import { Counter } from '../../components/counter'
-import shampoo from '../../../Imagens/Shampoo/coco.png'
+
 import { useLanguage } from '../../context/LanguageContext';
+import { useProducts } from '../../context/productContext';
 
 export function Checkout() {
 
   const { translation } = useLanguage();
+  const {cart} = useProducts()
+
+  const calculateTotal = () => {
+    let total = 0;
+    for (const item of cart) {
+      total += item.price * item.quantity;
+    }
+    return total;
+  };
 
   return (
     <CheckoutContainer>
@@ -115,15 +125,24 @@ export function Checkout() {
       <div className="shoppingDetails">
         <p>{translation.checkout.products}</p>
         <div className="shoppingResume">
-          <div className="shoppingResumeItem">
-            <img src={shampoo} alt="shampoo" />
-            <Counter isInCheckout={true} />
+          
+          {cart.map((item) => (
+        <div key={item.id} className="shoppingResumeItem">
+          <img src={item.image} alt={item.name} />
+          <div className="item-details">
+            <p>{item.description}</p>
+            <p>Price: € {item.price}</p>
+            <Counter/>
+            <p>Subtotal: € {item.price * item.quantity}</p>
           </div>
+        </div>
+      ))}
+      
 
           <div className="addition">
             <p>
               {translation.checkout.itens}
-              <span>€ 7,00</span>
+              <span>{cart.length}</span> // verrificar que na verdade é o quantity de cada um somado.
             </p>
           </div>
 

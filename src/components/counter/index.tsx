@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { StyledCounter } from './styles'
 import { Minus, Plus } from 'phosphor-react'
 
-export function Counter({ isInCheckout = false }) {
+export function Counter() {
   const [counterState, setCounterState] = useState(1)
 
   const handleIncrement = () => {
@@ -16,7 +16,7 @@ export function Counter({ isInCheckout = false }) {
   }
 
   return (
-    <StyledCounter isInCheckout={isInCheckout}>
+    <StyledCounter>
       <button
         className="minusPlus"
         disabled={counterState === 1}
