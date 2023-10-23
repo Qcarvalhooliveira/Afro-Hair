@@ -17,10 +17,13 @@ export function Checkout() {
     }
     return total;
   };
+  
   const CalculateTotalPrice = () => {
     let total = 0;
     for (const item of cart) {
-      total += item.price * item.quantity;
+      if (item.price !== undefined) {
+        total += item.price * item.quantity;
+      }
     }
     return total;
   } 
@@ -139,8 +142,8 @@ export function Checkout() {
             <p>{item.description}</p>
             <p>Price: € {item.price}</p>
             <Counter/>
-            <p>Subtotal: € {item.price * item.quantity}</p>
-          </div>
+            <p>Subtotal: € {item.price !== undefined ? item.price * item.quantity : ''}</p>
+             </div>
         </div>
       ))}
       
