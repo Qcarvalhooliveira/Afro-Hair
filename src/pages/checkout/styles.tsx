@@ -16,17 +16,6 @@ export const CheckoutContainer = styled.div`
     gap: 0.75rem;
   }
 
-  p {
-    height: 1.4375rem;
-
-    text-align: left;
-
-    font-family: 'baloo 2';
-    font-weight: 700;
-    line-height: 23.4px;
-    font-size: 1.125rem;
-  }
-
   .userInfo {
     display: flex;
     flex-direction: column;
@@ -180,12 +169,31 @@ export const CheckoutContainer = styled.div`
         justify-content: space-between;
 
         width: 100%;
-        height: 4rem;
+        height: 8rem;
         img {
           max-width: 100%;
           max-height: 100%;
         }
       }
+      .item-details {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        
+      
+        .item-description {
+          width: 5rem;
+
+        }
+        .item-price {
+          width: 4rem;
+          
+        }
+              
+      
       .addition {
         width: 23rem;
         height: 5.75rem;
@@ -199,38 +207,23 @@ export const CheckoutContainer = styled.div`
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 23rem;
+          width: 7rem;
 
           font-family: Roboto;
           font-size: 0.875rem;
           font-weight: 400;
           line-height: 18px;
 
-          color: ${(props) => props.theme['-base-text']};
+          color: ${(props) => props.theme['body-background']};
           span {
             font-size: 1rem;
             line-height: 20.8px;
           }
         }
 
-        h1 {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 23rem;
-
-          font-family: Roboto;
-          font-size: 1.25rem;
-          font-weight: 700;
-          line-height: 26px;
-
-          color: ${(props) => props.theme['-base-subtitle']};
-        }
+       
       }
       .formValidation {
-        appearance: none;
-        border: none;
-        outline: none;
 
         display: flex;
         align-items: center;
@@ -250,23 +243,11 @@ export const CheckoutContainer = styled.div`
         font-size: 0.875rem;
 
         &:hover {
-          background: ${(props) => props.theme['-yellow-dark']};
+          background: ${(props) => props.theme['background']};
         }
       }
     }
-    .shoppingResumeCoffeeCard::after {
-      content: ' ';
-      width: 23rem;
-      height: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1.5rem;
-
-      background: ${(props) => props.theme['-base-button']};
-    }
+   
   }
-
-  .shoppingCart {
-  }
-`
+}
+`;

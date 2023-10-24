@@ -20,7 +20,7 @@ export function Categorie() {
       <div className="Products">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id}>
-            <ProductImage src={product.image} alt="Product" />
+            <ProductImage><img src={product.image} alt="Product" /></ProductImage> 
             <ProductInfo>
               <ProductDescription>{product.description}</ProductDescription>
               <ProductPrice>${product.price}</ProductPrice>

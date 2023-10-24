@@ -137,12 +137,13 @@ export function Checkout() {
           
           {cart.map((item) => (
         <div key={item.id} className="shoppingResumeItem">
+
           <img src={item.image} alt={item.name} />
+
           <div className="item-details">
-            <p>{item.description}</p>
-            <p>Price: € {item.price}</p>
-            <Counter/>
-            <p>Subtotal: € {item.price !== undefined ? item.price * item.quantity : ''}</p>
+            <p className='item-description'>{item.description}</p>
+            <p className='item-price'>Price: € {item.price}</p>
+            <span><Counter/></span>
              </div>
         </div>
       ))}
