@@ -2,12 +2,17 @@ import { useState } from 'react'
 import { ProductContainer } from './styles'
 import Star from '../../components/star/index.tsx'
 import { useProducts } from '../../context/productContext'
+import { useParams } from 'react-router-dom';
 
 const items: number[] = [...(new Array(5).keys() as any)]
 
 export function Product() {
   const { products, addToCart } = useProducts()
   const [activeIndex, setActiveIndex] = useState<number>()
+  const {id} = useParams()
+  const index = id ? parseInt(id) - 1 : -1;
+  
+
 
   const onclickStar = (index: number) => {
     setActiveIndex((oldState) => (oldState === index ? undefined : index))
@@ -15,14 +20,13 @@ export function Product() {
   return (
     <ProductContainer>
       <div className="imageProduct">
-        <img src={products[5].image} alt={products[5].name} />
+        <img src={products[index].image} alt={products[index].name} />
       </div>
       <div className="descriptionProduct">
         <h1>
-          Novex – Mystic Black Après-shampoing – Santo Black Ponderoso – 300 ml
-        </h1>{' '}
-        //TODO : change name
-        <div className="starContainer">
+         {products[index].description}
+        </h1>
+          <div className="starContainer">
           {items.map((index) => (
             <Star
               onClick={() => onclickStar(index)}
@@ -31,29 +35,29 @@ export function Product() {
             />
           ))}
         </div>
-        <h3>{'$ ' + products[5].price}</h3>
+        <h3>{'$ ' + products[index].price}</h3>
         <h4>Features</h4>
         <ul>
           <li>
-            <b>INDICATION:</b> <br /> {products[5].indication}
+            <b>INDICATION:</b> <br /> {products[index].indication}
           </li>
           <li>
-            <b>ACTION:</b> <br /> {products[5].action}
+            <b>ACTION:</b> <br /> {products[index].action}
           </li>
           <li>
             <b>ACTIVE INGREDIENT:</b>
-            <br /> {products[5].activeIngredients}
+            <br /> {products[index].activeIngredients}
           </li>
           <li>
             <b>BENEFITS:</b> <br />
-            {products[5].benefits}
+            {products[index].benefits}
           </li>
           <li>
-            <b>COMPOSITION:</b> <br /> {products[5].composition}
+            <b>COMPOSITION:</b> <br /> {products[index].composition}
           </li>
         </ul>
         <div className="buttonContainer">
-          <button onClick={() => addToCart(products[5])}> Add to Cart</button>
+          <button onClick={() => addToCart(products[index])}> Add to Cart</button>
           <button> Buy Now</button>
         </div>
       </div>

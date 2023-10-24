@@ -34,6 +34,8 @@ export function Home() {
   }, [slider])
 
   const { translation } = useLanguage()
+  const recommendatedProducts = products.filter((product) => product.category.includes('Best Seller'))
+  const recentProducts = products.slice(-3)
 
   return (
     <HomeContainer>
@@ -58,11 +60,12 @@ export function Home() {
             </Link>
           </div>
           <div className="highlightImages">
-            {products.slice(4, 7).map((product) => (
+            {recommendatedProducts.slice(0, 3).map((product) => (
               <ProductCircle
                 key={product.id}
                 productImage={product.image}
                 altText={`Product ${product.name + 1}`}
+                productIndex={product.id}
               />
             ))}
           </div>
@@ -76,11 +79,12 @@ export function Home() {
             </Link>
           </div>
           <div className="highlightImages">
-            {products.slice(7, 10).map((product) => (
+            {recentProducts.map((product) => (
               <ProductCircle
                 key={product.id}
                 productImage={product.image}
                 altText={`Product ${product.name + 1}`}
+                productIndex={product.id}
               />
             ))}
           </div>
