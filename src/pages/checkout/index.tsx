@@ -2,31 +2,30 @@ import { MapPinLine } from 'phosphor-react'
 import { CheckoutContainer } from './styles'
 import { Counter } from '../../components/counter'
 
-import { useLanguage } from '../../context/LanguageContext';
-import { useProducts } from '../../context/productContext';
+import { useLanguage } from '../../context/LanguageContext'
+import { useProducts } from '../../context/productContext'
 
 export function Checkout() {
-
-  const { translation } = useLanguage();
-  const {cart} = useProducts()
+  const { translation } = useLanguage()
+  const { cart } = useProducts()
 
   const calculateTotalOfItens = () => {
-    let total = 0;
+    let total = 0
     for (const item of cart) {
-      total += item.quantity;
+      total += item.quantity
     }
-    return total;
-  };
-  
+    return total
+  }
+
   const CalculateTotalPrice = () => {
-    let total = 0;
+    let total = 0
     for (const item of cart) {
       if (item.price !== undefined) {
-        total += item.price * item.quantity;
+        total += item.price * item.quantity
       }
     }
-    return total;
-  } 
+    return total
+  }
   return (
     <CheckoutContainer>
       <div className="userPaymentAndDeliveryInfos">
@@ -134,20 +133,19 @@ export function Checkout() {
       <div className="shoppingDetails">
         <p>{translation.checkout.products}</p>
         <div className="shoppingResume">
-          
           {cart.map((item) => (
-        <div key={item.id} className="shoppingResumeItem">
+            <div key={item.id} className="shoppingResumeItem">
+              <img src={item.image} alt={item.name} />
 
-          <img src={item.image} alt={item.name} />
-
-          <div className="item-details">
-            <p className='item-description'>{item.description}</p>
-            <p className='item-price'>Price: € {item.price}</p>
-            <span><Counter/></span>
-             </div>
-        </div>
-      ))}
-      
+              <div className="item-details">
+                <p className="item-description">{item.description}</p>
+                <p className="item-price">Price: € {item.price}</p>
+                <span>
+                  <Counter />
+                </span>
+              </div>
+            </div>
+          ))}
 
           <div className="addition">
             <p>

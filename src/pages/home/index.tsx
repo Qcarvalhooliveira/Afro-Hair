@@ -1,14 +1,15 @@
-import {  useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import { HighlightSection, HomeContainer } from './styles'
 import { ProductCircle } from '../../components/productCircle/index'
-import {  useProducts } from '../../context/productContext'
+import { useProducts } from '../../context/productContext'
 import { useLanguage } from '../../context/LanguageContext'
+import { Link } from 'react-router-dom'
 
 export const stripeTest = import.meta.env
 export function Home() {
-  const {products} = useProducts() // pega os produtos por context
+  const { products } = useProducts() // pega os produtos por context
   const slideInterval = 2000
   const [_currentSlide, setCurrentSlide] = useState(0)
   const [sliderRef, slider] = useKeenSlider({ loop: true })
@@ -32,7 +33,7 @@ export function Home() {
     }
   }, [slider])
 
-  const { translation } = useLanguage();
+  const { translation } = useLanguage()
 
   return (
     <HomeContainer>
@@ -68,7 +69,9 @@ export function Home() {
         <HighlightSection>
           <div className="highlightTitles">
             <h2>{translation.homePage.newArrivals}</h2>
-            <button>{translation.homePage.seeAll}</button>
+            <Link to="/newArrivals">
+              <button>{translation.homePage.seeAll}</button>
+            </Link>
           </div>
           <div className="highlightImages">
             {products.slice(7, 10).map((product) => (
@@ -80,7 +83,6 @@ export function Home() {
             ))}
           </div>
         </HighlightSection>
-        
       </div>
     </HomeContainer>
   )

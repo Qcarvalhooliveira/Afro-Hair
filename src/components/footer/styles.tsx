@@ -10,7 +10,7 @@ export const FooterContainer = styled.footer`
     #da9fc3 0%,
     ${(props) => props.theme['element-background']}
   );
-  border-radius: 20px 20px 0 0; 
+  border-radius: 20px 20px 0 0;
 `
 
 export const Language = styled.section`

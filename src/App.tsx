@@ -11,7 +11,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext.tsx'
 import { ProductsProvider } from './context/productContext.tsx'
 
-
 export function App() {
   const [theme, setTheme] = useState(BarbieTheme)
   const toggleDarkTheme = () => setTheme(DarkTheme)
@@ -20,19 +19,19 @@ export function App() {
   return (
     <LanguageProvider>
       <ProductsProvider>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <BrowserRouter>
-        <Header />
-        <Router />
-      </BrowserRouter>
-      <Footer
-        toggleDarkTheme={toggleDarkTheme}
-        toggleLightTheme={toggleLightTheme}
-        toggleBarbieTheme={toggleBarbieTheme}
-      />
-    </ThemeProvider>
-    </ProductsProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <BrowserRouter>
+            <Header />
+            <Router />
+          </BrowserRouter>
+          <Footer
+            toggleDarkTheme={toggleDarkTheme}
+            toggleLightTheme={toggleLightTheme}
+            toggleBarbieTheme={toggleBarbieTheme}
+          />
+        </ThemeProvider>
+      </ProductsProvider>
     </LanguageProvider>
   )
 }

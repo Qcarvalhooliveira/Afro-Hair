@@ -76,6 +76,20 @@ export const HeaderContainer = styled.header`
         color: ${(props) => props.theme['button-text']};
       }
     }
+    .item-count {
+      position: absolute;
+      top: 70px;
+      right: 155px;
+      color: ${(props) => props.theme['button-text']};
+      background: ${(props) => props.theme['button-background']};
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
   }
 
   form {

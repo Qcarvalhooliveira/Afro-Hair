@@ -20,8 +20,8 @@ import {
   Links,
   Mode,
 } from './styles'
-import { HighHeel } from '@phosphor-icons/react';
-import { useLanguage } from '../../context/LanguageContext.tsx';
+import { HighHeel } from '@phosphor-icons/react'
+import { useLanguage } from '../../context/LanguageContext.tsx'
 
 interface ThemesType {
   toggleDarkTheme: () => void
@@ -34,9 +34,8 @@ export function Footer({
   toggleBarbieTheme,
   toggleLightTheme,
 }: ThemesType) {
-  
-  const {  changeLanguage, translation } = useLanguage();
- 
+  const { changeLanguage, translation } = useLanguage()
+
   return (
     <FooterContainer>
       <Language>
@@ -67,7 +66,11 @@ export function Footer({
             </div>
           </div>
           <div>
-            <a href="https://outlook.live.com/owa/?path=/mail/action/compose&to=afro.hair@outlook.fr" target="_blank">
+            <a
+              href="https://outlook.live.com/owa/?path=/mail/action/compose&to=afro.hair@outlook.fr"
+              target="_blank"
+              rel="noreferrer"
+            >
               <EnvelopeSimple size={22} /> <p> afro.hair@outlook.fr </p>
             </a>
           </div>
@@ -79,28 +82,38 @@ export function Footer({
 
       <AboutUs>
         <h4>{translation.footer.aboutUs}</h4>
-        <p>
-          {translation.footer.aboutUsDescription}
-        </p>
+        <p>{translation.footer.aboutUsDescription}</p>
       </AboutUs>
 
       <Links>
         <h4>{translation.footer.links}</h4>
         <section>
           <button>
-          <a href="https://www.facebook.com/profile.php?id=61552162576566" target="_blank">
-             <FacebookLogo size={22} /> <p>@afrohair</p>
-          </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61552162576566"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FacebookLogo size={22} /> <p>@afrohair</p>
+            </a>
           </button>
           <button>
-            <a href='https://www.instagram.com/afrohairnovex/' target="_blank">
-            <InstagramLogo size={22} /> <p>@afrohair</p>
-          </a>
+            <a
+              href="https://www.instagram.com/afrohairnovex/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <InstagramLogo size={22} /> <p>@afrohair</p>
+            </a>
           </button>
           <button>
-          <a href="https://twitter.com/AfroHairNovex" target="_blank">
-             <TwitterLogo size={22} /> <p>@afrohair</p>
-          </a>
+            <a
+              href="https://twitter.com/AfroHairNovex"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <TwitterLogo size={22} /> <p>@afrohair</p>
+            </a>
           </button>
         </section>
       </Links>

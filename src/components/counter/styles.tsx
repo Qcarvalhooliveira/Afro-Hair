@@ -52,5 +52,4 @@ export const StyledCounter = styled.div`
       color: ${(props) => props.theme.white};
     }
   }
-
 `

@@ -1,16 +1,15 @@
 // src/components/LoginPortal/styles.js
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const LoginPortalContainer = styled.div`
-
   position: absolute;
-  top: 3.5rem; 
+  top: 3.5rem;
   right: 15rem;
   color: ${(props) => props.theme['button-background']};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   z-index: 100;
-  width: 200px; 
+  width: 200px;
   padding: 1rem;
   background-color: ${(props) => props.theme['button-text']};
   border: 1px solid #ccc;
@@ -59,5 +58,4 @@ export const LoginPortalContainer = styled.div`
       font-size: 14px;
     }
   }
-
-`;
+`

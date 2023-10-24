@@ -6,7 +6,7 @@ import { useProducts } from '../../context/productContext'
 const items: number[] = [...(new Array(5).keys() as any)]
 
 export function Product() {
-  const {products, addToCart} = useProducts()
+  const { products, addToCart } = useProducts()
   const [activeIndex, setActiveIndex] = useState<number>()
 
   const onclickStar = (index: number) => {

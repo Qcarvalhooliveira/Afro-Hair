@@ -176,78 +176,69 @@ export const CheckoutContainer = styled.div`
         }
       }
       .item-details {
-
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        
-      
+
         .item-description {
           width: 5rem;
-
         }
         .item-price {
           width: 4rem;
-          
         }
-              
-      
-      .addition {
-        width: 23rem;
-        height: 5.75rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 0.75rem;
 
-        p {
+        .addition {
+          width: 23rem;
+          height: 5.75rem;
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 7rem;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 0.75rem;
 
-          font-family: Roboto;
-          font-size: 0.875rem;
-          font-weight: 400;
-          line-height: 18px;
+          p {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 7rem;
 
-          color: ${(props) => props.theme['body-background']};
-          span {
-            font-size: 1rem;
-            line-height: 20.8px;
+            font-family: Roboto;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 18px;
+
+            color: ${(props) => props.theme['body-background']};
+            span {
+              font-size: 1rem;
+              line-height: 20.8px;
+            }
           }
         }
+        .formValidation {
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-       
-      }
-      .formValidation {
+          width: 23rem;
+          height: 2.875rem;
+          border-radius: 6px;
+          padding: 0.5rem 0.75rem;
+          gap: 0.25rem;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+          background: ${(props) => props.theme['-yellow']};
+          color: ${(props) => props.theme['-white']};
 
-        width: 23rem;
-        height: 2.875rem;
-        border-radius: 6px;
-        padding: 0.5rem 0.75rem;
-        gap: 0.25rem;
+          font-weight: 700;
+          line-height: 22.4x;
+          font-size: 0.875rem;
 
-        background: ${(props) => props.theme['-yellow']};
-        color: ${(props) => props.theme['-white']};
-
-        font-weight: 700;
-        line-height: 22.4x;
-        font-size: 0.875rem;
-
-        &:hover {
-          background: ${(props) => props.theme['background']};
+          &:hover {
+            background: ${(props) => props.theme.background};
+          }
         }
       }
     }
-   
   }
-}
-`;
+`
