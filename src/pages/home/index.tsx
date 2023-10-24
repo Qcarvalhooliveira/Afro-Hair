@@ -53,7 +53,9 @@ export function Home() {
         <HighlightSection>
           <div className="highlightTitles">
             <h2>{translation.homePage.recommendations}</h2>
-            <button>{translation.homePage.seeAll}</button>
+            <Link to="/recommendations">
+              <button>{translation.homePage.seeAll}</button>
+            </Link>
           </div>
           <div className="highlightImages">
             {products.slice(4, 7).map((product) => (

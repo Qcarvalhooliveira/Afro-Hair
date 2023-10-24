@@ -8,8 +8,10 @@ import {
 } from './styles'
 import { useProducts } from '../../context/productContext'
 import { Handbag } from 'phosphor-react'
+import { useLanguage } from '../../context/LanguageContext'
 
 export function NewArrivals() {
+  const { translation } = useLanguage()
   const { products, addToCart } = useProducts()
 
   const recentProducts = products.slice(-6)
@@ -17,7 +19,7 @@ export function NewArrivals() {
   return (
     <NewArrivalsContainer>
       <div className="Title">
-        <h1>New Arrivals</h1>
+        <h1>{translation.homePage.newArrivals}</h1>
       </div>
       <div className="Products">
         {recentProducts.map((product) => (

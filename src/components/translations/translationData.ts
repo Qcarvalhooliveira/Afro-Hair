@@ -59,6 +59,7 @@ export interface TranslationData {
     itens: string
     confirm: string
     total: string
+    // to do add to cart translation
   }
 }
 

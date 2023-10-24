@@ -142,7 +142,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product5',
       image: product5,
       description: 'Novex Super Babosão Conditioner 300ML',
-      category: ['Conditioner', 'best Seller'],
+      category: ['Conditioner'],
       indication: 'Suitable for all hair types',
       action:
         'Aloe Vera is a moisturizing agent that provides shine and softness to the hair.',
@@ -175,7 +175,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product7',
       image: product7,
       description: 'Novex My Powerful Holy Black Curls Conditioner 300ML',
-      category: ['Conditioner', 'best Seller'],
+      category: ['Conditioner'],
       indication:
         'Recommended for curly, dry, oily, combination, chemically treated, and dyed hair.',
       action: 'Hydrated curls, no split ends, with shine and volume.',
@@ -191,7 +191,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product8',
       image: product8,
       description: 'Novex My Cinema Curls Conditioner 300ML',
-      category: ['Conditioner', 'best Seller'],
+      category: ['Conditioner'],
       indication:
         'Recommended for curly, dry, oily, combination, chemically treated, and dyed hair.',
       action: 'Soft curls, full of shine.',
@@ -241,7 +241,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product11',
       image: product11,
       description: 'Novex My Intense Curls Leave-In Conditioner 500ML',
-      category: ['Leave-In'],
+      category: ['Leave-In', 'Best Seller'],
       indication:
         'Recommended for curly, dry, oily, combination, chemically treated, and dyed hair.',
       action: 'You with a fabulous curl!',
@@ -326,7 +326,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product16',
       image: product16,
       description: 'Novex My Vibrant Curls Leave-In Conditioner 500ML',
-      category: ['Leave-In'],
+      category: ['Leave-In', 'Best Seller'],
       indication:
         'Recommended for curly, dry, oily, combination, chemically treated, or dyed hair.',
       action: 'Your powerful curls!',
@@ -405,7 +405,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product21',
       image: product21,
       description: 'Novex My Curls Kit',
-      category: ['Kit'],
+      category: ['Kit', 'Best Seller'],
       indication:
         'Suitable for curly, dry, oily, combination, chemically treated, or dyed hair',
       action:
@@ -437,7 +437,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product23',
       image: product23,
       description: 'Novex Olive Oil and Rosemary Treatment Cream 400g',
-      category: ['Treatment'],
+      category: ['Treatment', 'Best Seller'],
       indication: 'Recommended for weak, dry, and brittle hair.',
       action: 'Hydrated, nourished, and protected hair.',
       activeIngredients: 'Olive Oil and Rosemary.',
@@ -570,7 +570,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product31',
       image: product31,
       description: 'Vitay Coconut Oil Shampoo 300ML',
-      category: ['Shampoo'],
+      category: ['Shampoo' , 'Best Seller'],
       indication: 'Recommended for dry hair.',
       action: 'Hair super hydrated, soft, and with a lot of shine.',
       activeIngredients: 'Coconut Oil.',
@@ -604,7 +604,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product33',
       image: product33,
       description: 'Vitay My Curls Shampoo 300ML',
-      category: ['Shampoo'],
+      category: ['Shampoo', 'Best Seller'],
       indication:
         'Suitable for curly, dry, oily, combination, chemically treated, and dyed hair.',
       action: 'You are ready to enjoy life with well-hydrated hair.',
