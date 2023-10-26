@@ -15,9 +15,9 @@ export const ProductCircle: React.FC<ProductCircleProps> = ({
   return (
     <ProductCircleContainer>
       <Link to={`/product/${productIndex}`}>
-      <button className="highligthImgContainer">
-        <img src={productImage} alt={altText} />
-      </button>
+        <button className="highligthImgContainer">
+          <img src={productImage} alt={altText} />
+        </button>
       </Link>
     </ProductCircleContainer>
   )

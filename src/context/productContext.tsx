@@ -570,7 +570,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       name: 'product31',
       image: product31,
       description: 'Vitay Coconut Oil Shampoo 300ML',
-      category: ['Shampoo' , 'Best Seller'],
+      category: ['Shampoo', 'Best Seller'],
       indication: 'Recommended for dry hair.',
       action: 'Hair super hydrated, soft, and with a lot of shine.',
       activeIngredients: 'Coconut Oil.',

@@ -61,6 +61,16 @@ export interface TranslationData {
     total: string
     // to do add to cart translation
   }
+  productpage: {
+    features: string
+    indication: string
+    action: string
+    active: string
+    benefits: string
+    composition: string
+    add: string
+    shopping: string
+  }
 }
 
 export const translationData: Record<string, TranslationData> = {
@@ -127,6 +137,16 @@ export const translationData: Record<string, TranslationData> = {
       confirm: 'CONFIRM ORDER',
       total: 'Total',
     },
+    productpage: {
+      features: 'Features',
+      indication: 'INDICATION:',
+      action: 'ACTION:',
+      active: 'ACTIVE INGREDIENT:',
+      benefits: 'BENEFITS:',
+      composition: 'COMPOSITION:',
+      add: 'Add to Cart',
+      shopping: 'Continue Shopping',
+    },
   },
 
   fr: {
@@ -192,6 +212,16 @@ export const translationData: Record<string, TranslationData> = {
       confirm: 'CONFIRMER VOTRE COMMANDE',
       total: 'Total',
     },
+    productpage: {
+      features: 'Caractéristiques',
+      indication: 'INDICATION :',
+      action: 'ACTION :',
+      active: 'INGRÉDIENT ACTIF :',
+      benefits: 'AVANTAGES :',
+      composition: 'COMPOSITION :',
+      add: 'Ajouter au panier',
+      shopping: 'Continuer vos achats',
+    },
   },
   pt: {
     footer: {
@@ -255,6 +285,16 @@ export const translationData: Record<string, TranslationData> = {
       itens: 'Total dos Itens',
       confirm: 'CONFIRMAR PEDIDO',
       total: 'Total',
+    },
+    productpage: {
+      features: 'Características',
+      indication: 'INDICAÇÃO:',
+      action: 'AÇÃO:',
+      active: 'INGREDIENTE ATIVO:',
+      benefits: 'BENEFÍCIOS:',
+      composition: 'COMPOSIÇÃO:',
+      add: 'Adicionar ao Carrinho',
+      shopping: 'Continuar Comprando',
     },
   },
 }

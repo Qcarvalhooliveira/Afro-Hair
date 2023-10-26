@@ -34,7 +34,9 @@ export function Home() {
   }, [slider])
 
   const { translation } = useLanguage()
-  const recommendatedProducts = products.filter((product) => product.category.includes('Best Seller'))
+  const recommendatedProducts = products.filter((product) =>
+    product.category.includes('Best Seller'),
+  )
   const recentProducts = products.slice(-3)
 
   return (
