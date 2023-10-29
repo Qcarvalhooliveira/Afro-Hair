@@ -1,13 +1,13 @@
-import { MapPinLine } from 'phosphor-react'
+import { MapPinLine, Trash } from 'phosphor-react'
 import { CheckoutContainer } from './styles'
 import { Counter } from '../../components/counter'
-
 import { useLanguage } from '../../context/LanguageContext'
 import { useProducts } from '../../context/productContext'
 
 export function Checkout() {
   const { translation } = useLanguage()
-  const { cart } = useProducts()
+  const { cart, removeItemFromCart, updateCartItemQuantity } = useProducts();
+  
 
   const calculateTotalOfItens = () => {
     let total = 0
@@ -135,15 +135,20 @@ export function Checkout() {
         <div className="shoppingResume">
           {cart.map((item) => (
             <div key={item.id} className="shoppingResumeItem">
-              <img src={item.image} alt={item.name} />
-
+              <img src={item.image} alt={item.name} className="product-image"/>
               <div className="item-details">
+              <div className="description-and-price">
                 <p className="item-description">{item.description}</p>
                 <p className="item-price">Price: € {item.price}</p>
-                <span>
-                  <Counter />
-                </span>
               </div>
+                <span>
+                  <Counter initialQuantity={item.quantity} onQuantityChange={(quantity) => updateCartItemQuantity(item.id, quantity)}/>
+                </span>
+                
+              </div>
+              <button onClick={() => removeItemFromCart(item.id)}>
+                <Trash size={20} />
+                </button>
             </div>
           ))}
 
@@ -151,9 +156,11 @@ export function Checkout() {
             <p>
               {translation.checkout.itens}
               <span>{calculateTotalOfItens()}</span>
+              </p>
+              <h1>
               {translation.checkout.total}
               <span>€ {CalculateTotalPrice()}</span>
-            </p>
+              </h1>
           </div>
 
           <button type="submit" className="formValidation">

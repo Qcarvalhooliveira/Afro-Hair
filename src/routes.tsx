@@ -6,6 +6,8 @@ import { NewArrivals } from './pages/newArrivals/index.tsx'
 import { Recommendations } from './pages/recommendations/index.tsx'
 import { Product } from './pages/product/index.tsx'
 import { Search } from './pages/search/index.tsx'
+import { Liked } from './pages/liked/index.tsx'
+
 
 export function Router() {
   return (
@@ -17,6 +19,7 @@ export function Router() {
       <Route path="/newArrivals" element={<NewArrivals />} />
       <Route path="/recommendations" element={<Recommendations />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/liked" element={<Liked />} />
     </Routes>
   )
 }

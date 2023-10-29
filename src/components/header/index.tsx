@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent, KeyboardEvent } from 'react'
+import { useState, ChangeEvent, FormEvent, KeyboardEvent, useEffect} from 'react'
 import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import { HeaderContainer } from './styles'
@@ -14,6 +14,8 @@ export function Header() {
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [liked, setLiked] = useState(false)
+ 
 
   const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value)
@@ -55,6 +57,45 @@ export function Header() {
     setIsLoginOpen(true)
   }
 
+  const handleClickHeart = () => {
+    setLiked(!liked);
+  
+    if (!liked) {
+      // Aqui você pode adicionar lógica para adicionar o produto aos "liked" (talvez usando Redux ou outro sistema de gerenciamento de estado).
+      // Por enquanto, vou apenas redirecionar o usuário para a página "liked" como um exemplo.
+      navigate('/liked');
+    }
+  }
+
+
+useEffect(() => {
+  const closePortalsOnOutsideClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement | null;
+    if (menuOpen) {
+     
+      if (target && !target.closest('.menu')) {
+        setMenuOpen(false);
+      }
+    }
+
+    if (isLoginOpen) {
+      
+      if (target && !target.closest('.login')) {
+        setIsLoginOpen(false);
+      }
+    }
+  };
+
+  document.addEventListener('click', closePortalsOnOutsideClick);
+
+  return () => {
+    document.removeEventListener('click', closePortalsOnOutsideClick);
+  };
+}, [menuOpen, isLoginOpen]);
+
+
+
+
   const portalRoot = document.getElementById('portal-root')
 
   const { translation } = useLanguage()
@@ -79,14 +120,17 @@ export function Header() {
         <img src={logo} alt="afrohairLogo" />
       </button>
       <div>
-        <button
+        <button className='login'
           title={translation.header.profile}
           onClick={handleUserIconClick}
         >
           <User size={24} />{' '}
         </button>
-        <button title={translation.header.liked}>
+        <button 
+          onClick={handleClickHeart}
+          title={translation.header.liked}>
           <Heart size={24} />
+          {itemCount > 0 && <span className="item-count">{itemCount}</span>}
         </button>
         <button
           onClick={handleShoppingCartClick}

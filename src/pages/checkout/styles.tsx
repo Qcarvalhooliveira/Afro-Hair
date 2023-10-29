@@ -7,8 +7,10 @@ export const CheckoutContainer = styled.div`
   border-radius: 20px;
   min-height: 150vh;
   padding: 2rem 10rem;
+ 
 
   .userPaymentAndDeliveryInfos {
+    font-weight: bold;
     width: 40rem;
     height: 36.9375rem;
     display: flex;
@@ -27,6 +29,7 @@ export const CheckoutContainer = styled.div`
     border-radius: 20px;
 
     .formTitle {
+      
       width: 35rem;
       height: 2.75rem;
       gap: 0.5rem;
@@ -34,17 +37,18 @@ export const CheckoutContainer = styled.div`
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
+      color: ${(props) => props.theme['button-background']};
 
       .moneyIcon {
         width: 1.875rem;
         height: 2.75rem;
-        color: ${(props) => props.theme['-purple']};
+        
       }
 
       .mapPinIcon {
         width: 1.875rem;
         height: 2.75rem;
-        color: ${(props) => props.theme['-yellow-dark']};
+        
       }
       .adressPaymentTitle {
         h1 {
@@ -52,15 +56,7 @@ export const CheckoutContainer = styled.div`
           font-weight: 400;
           line-height: 20.8px;
           font-size: 1rem;
-          color: ${(props) => props.theme['-base-subtitle']};
-        }
-
-        p {
-          font-family: 'Roboto';
-          font-weight: 400;
-          line-height: 18.2px;
-          font-size: 0.875rem;
-          color: ${(props) => props.theme['-base-text']};
+          
         }
       }
     }
@@ -118,8 +114,7 @@ export const CheckoutContainer = styled.div`
         .complemento {
           position: absolute;
           width: 21.75rem;
-          background: ${(props) => props.theme['-base-input']};
-          border: 1px solid ${(props) => props.theme['-base-button']};
+          
         }
         i {
           position: relative;
@@ -130,7 +125,7 @@ export const CheckoutContainer = styled.div`
           font-weight: 400;
           line-height: 15.6px;
           font-size: 0.75rem;
-          color: ${(props) => props.theme['-base-label']};
+       
         }
       }
 
@@ -149,96 +144,160 @@ export const CheckoutContainer = styled.div`
   .shoppingDetails {
     display: flex;
     flex-direction: column;
+
     gap: 0.75rem;
-    .shoppingResume {
+  }
+  .shoppingResume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 20rem;
+    flex: 1;
+    border-radius: 20px;
+    gap: 1.5rem;
+    padding: 2.35rem;
+    background: ${(props) => props.theme['button-text']};
+    
+  }
+
+  .shoppingResumeItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+ 
+
+  .product-image {
+    max-width: 100px; /* Ajuste o valor conforme necessário */
+    max-height: 100px; /* Ajuste o valor conforme necessário */
+  }
+
+  .item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+
+  .description-and-price {
+     
+      flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
+    }
 
-      width: 28rem;
-      flex: 1;
-      border-radius: 6px 44px 6px 44px;
-      gap: 1.5rem;
-      padding: 2.5rem;
 
-      background: ${(props) => props.theme['-base-card']};
+    .item-description {
+      width: 10rem;
+      font-weight: bold;
+      font-size: 1rem;
+      color: ${(props) => props.theme['button-background']};
+     
+    }
 
-      .shoppingResumeItem {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    .item-price {
+      display: flex;
+      align-items: flex-start;
+      font-size: 1rem;
+      
+      color: ${(props) => props.theme['button-background']};
+    }
 
-        width: 100%;
-        height: 8rem;
-        img {
-          max-width: 100%;
-          max-height: 100%;
-        }
+  
+  }
+  button {
+      display: flex;
+      align-items: flex-end;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+   
+
+      &:hover {
+      color: ${(props) => props.theme['button-background']};
       }
-      .item-details {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+    }
 
-        .item-description {
-          width: 5rem;
-        }
-        .item-price {
-          width: 4rem;
-        }
-
-        .addition {
-          width: 23rem;
+    }
+    
+    .addition {
+          width: 20rem;
           height: 5.75rem;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
+          align-items: center;
           justify-content: center;
           gap: 0.75rem;
+          
+         
 
           p {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 7rem;
+            width: 18rem;
+            
 
             font-family: Roboto;
             font-size: 0.875rem;
             font-weight: 400;
             line-height: 18px;
 
-            color: ${(props) => props.theme['body-background']};
+            color: ${(props) => props.theme['button-background']};
             span {
               font-size: 1rem;
               line-height: 20.8px;
             }
+          
           }
-        }
-        .formValidation {
+
+          h1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 18rem;
+            
+
+            font-family: Roboto;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 2px;
+            color: ${(props) => props.theme['button-background']};
+
+          }
+
+          
+      }
+
+      .formValidation {
+            appearance: none;
+            border: none;
+            outline: none;
+
           display: flex;
           align-items: center;
           justify-content: center;
 
-          width: 23rem;
+          width: 15rem;
           height: 2.875rem;
           border-radius: 6px;
           padding: 0.5rem 0.75rem;
           gap: 0.25rem;
 
-          background: ${(props) => props.theme['-yellow']};
-          color: ${(props) => props.theme['-white']};
+          background: ${(props) => props.theme['element-background']};
+          color: ${(props) => props.theme['button-background']};
 
           font-weight: 700;
           line-height: 22.4x;
           font-size: 0.875rem;
+          transition: 0.2s;
+         
 
           &:hover {
-            background: ${(props) => props.theme.background};
+            background: ${(props) => props.theme['button-background']};
+            color: ${(props) => props.theme['element-background']};
           }
         }
-      }
-    }
-  }
 `

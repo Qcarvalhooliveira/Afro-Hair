@@ -12,10 +12,20 @@ export const ProductContainer = styled.div`
     display: flex;
     flex-direction: column;
 
-    padding: 2rem;
     gap: 2rem;
     color: ${(props) => props.theme['button-background']};
+
+    
   }
+
+  .heartContainer {
+      display: flex;
+      border: none;
+      background: none;
+      align-items: flex-end;
+      justify-content: flex-end;
+      
+    }
 
   .descriptionProduct ul {
     list-style: none;
@@ -36,12 +46,13 @@ export const ProductContainer = styled.div`
       width: 10rem;
       padding: 0.6rem 1.2rem;
       background: ${(props) => props.theme['button-text']};
-      color: ${(props) => props.theme['button-background']}; /* Cor do texto */
+      color: ${(props) => props.theme['button-background']}; 
       font-weight: bold;
-      border: none; /* Remove a borda do botão */
-      border-radius: 10px; /* Borda arredondada */
-      cursor: pointer; /* Altera o cursor ao passar o mouse sobre o botão */
+      border: none; 
+      border-radius: 10px; 
+      cursor: pointer; 
       transition: 0.3s;
+      
     }
   }
 
@@ -52,5 +63,6 @@ export const ProductContainer = styled.div`
 
   .starContainer {
     display: flex;
+    
   }
 `

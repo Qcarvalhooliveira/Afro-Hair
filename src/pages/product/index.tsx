@@ -4,6 +4,8 @@ import Star from '../../components/star/index.tsx'
 import { useProducts } from '../../context/productContext'
 import { useParams } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
+import { useNavigate } from 'react-router-dom'
+
 
 const items: number[] = [...(new Array(5).keys() as any)]
 
@@ -12,19 +14,27 @@ export function Product() {
   const [activeIndex, setActiveIndex] = useState<number>()
   const { id } = useParams()
   const index = id ? parseInt(id) - 1 : -1
+  const navigate = useNavigate()
 
   const onclickStar = (index: number) => {
     setActiveIndex((oldState) => (oldState === index ? undefined : index))
   }
 
   const { translation } = useLanguage()
+
+  const handleShoppingClick = () => {
+    navigate('/')
+  }
+
+
   return (
     <ProductContainer>
       <div className="imageProduct">
         <img src={products[index].image} alt={products[index].name} />
       </div>
       <div className="descriptionProduct">
-        <h1>{products[index].description}</h1>
+        <h1>{products[index].description}      
+        </h1>
         <div className="starContainer">
           {items.map((index) => (
             <Star
@@ -62,7 +72,8 @@ export function Product() {
           <button onClick={() => addToCart(products[index])}>
             {translation.productpage.add}
           </button>
-          <button>{translation.productpage.shopping}</button>
+          <button onClick={handleShoppingClick}>
+            {translation.productpage.shopping}</button>
         </div>
       </div>
     </ProductContainer>

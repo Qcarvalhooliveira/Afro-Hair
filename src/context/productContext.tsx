@@ -49,7 +49,7 @@ interface Product {
   category: string[]
 }
 
-interface CartItem {
+export interface CartItem {
   id: number
   name: string
   image: string
@@ -61,6 +61,9 @@ interface ProductsContextType {
   products: Product[]
   cart: CartItem[]
   addToCart: (product: Product) => void
+  removeItemFromCart: (itemId: number) => void
+  updateCartItemQuantity: (productId: number, newQuantity: number) => void
+  
 }
 type ProductsProviderProps = {
   children: ReactNode
@@ -627,11 +630,27 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       const updatedProduct = { ...product, quantity: 1 }
       setCart([...cart, updatedProduct])
     }
-    console.log(cart)
+
   }
 
+  const updateCartItemQuantity = (productId: number, newQuantity: number) => {
+    const updatedCart = cart.map((item) => {
+      if (item.id === productId) {
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+
+    setCart(updatedCart);
+  }
+
+  const removeItemFromCart = (itemId: number) => {
+    const updatedCart = cart.filter((item) => item.id !== itemId);
+    setCart(updatedCart);
+  };
+
   return (
-    <ProductsContext.Provider value={{ products, cart, addToCart }}>
+    <ProductsContext.Provider value={{ products, cart, addToCart, removeItemFromCart, updateCartItemQuantity  }}>
       {children}
     </ProductsContext.Provider>
   )
