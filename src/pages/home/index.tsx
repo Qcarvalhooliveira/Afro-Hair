@@ -7,7 +7,7 @@ import { useProducts } from '../../context/productContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { Link } from 'react-router-dom'
 
-export const stripeTest = import.meta.env
+export const stripeTest = import.meta.env.VITE_STRIPE_PUBLIC_KEY
 export function Home() {
   const { products } = useProducts() // pega os produtos por context
   const slideInterval = 2000

@@ -44,7 +44,7 @@ export function Product() {
             />
           ))}
         </div>
-        <h3>{'$ ' + products[index].price}</h3>
+        <h3>{'€ ' + products[index].price}</h3>
         <h4>{translation.productpage.features}</h4>
         <ul>
           <li>
