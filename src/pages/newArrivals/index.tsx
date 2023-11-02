@@ -9,6 +9,7 @@ import {
 import { useProducts } from '../../context/productContext'
 import { Handbag } from 'phosphor-react'
 import { useLanguage } from '../../context/LanguageContext'
+import { Link } from 'react-router-dom'
 
 export function NewArrivals() {
   const { translation } = useLanguage()
@@ -24,9 +25,11 @@ export function NewArrivals() {
       <div className="Products">
         {recentProducts.map((product) => (
           <ProductCard key={product.id}>
+            <Link to={`/product/${product.id}`}>
             <ProductImage>
               <img src={product.image} alt="Product" />
             </ProductImage>
+            </Link>
             <ProductInfo>
               <ProductDescription>{product.description}</ProductDescription>
               <ProductPrice>${product.price}</ProductPrice>

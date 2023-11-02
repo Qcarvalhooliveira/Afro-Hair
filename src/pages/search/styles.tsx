@@ -46,7 +46,7 @@ export const SearchContainer = styled.div`
     }
   }
 `
-export const ProductCard = styled.button`
+export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

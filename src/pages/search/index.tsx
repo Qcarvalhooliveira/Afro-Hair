@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom'
 import { useProducts } from '../../context/productContext'
 import { Handbag } from 'phosphor-react'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function Search() {
   const { products, addToCart } = useProducts()
@@ -47,9 +48,11 @@ export function Search() {
       <div className="Products">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id}>
+            <Link to={`/product/${product.id}`}>
             <ProductImage>
               <img src={product.image} alt="Product" />
             </ProductImage>
+            </Link>
             <ProductInfo>
               <ProductDescription>{product.description}</ProductDescription>
               <ProductPrice>${product.price}</ProductPrice>
