@@ -71,6 +71,13 @@ export interface TranslationData {
     add: string
     shopping: string
   }
+
+  SignUpPortal: {
+    signUp: string
+    name: string
+    email: string
+    password: string
+  }
 }
 
 export const translationData: Record<string, TranslationData> = {
@@ -147,6 +154,13 @@ export const translationData: Record<string, TranslationData> = {
       add: 'Add to Cart',
       shopping: 'Continue Shopping',
     },
+    
+  SignUpPortal: {
+    signUp: 'Sign up',
+    name: 'Name',
+    email: 'Email',
+    password: 'Password',
+  }
   },
 
   fr: {
@@ -222,6 +236,12 @@ export const translationData: Record<string, TranslationData> = {
       add: 'Ajouter au panier',
       shopping: 'Continuer vos achats',
     },
+    SignUpPortal: {
+      signUp: 'S\'inscrire',
+      name: 'Nom',
+      email: 'E-mail',
+      password: 'Mot de passe',
+    }
   },
   pt: {
     footer: {
@@ -296,5 +316,12 @@ export const translationData: Record<string, TranslationData> = {
       add: 'Adicionar ao Carrinho',
       shopping: 'Continuar Comprando',
     },
+   
+    SignUpPortal: {
+      signUp: 'Cadastrar',
+      name: 'Nome',
+      email: 'E-mail',
+      password: 'Senha',
+    }
   },
 }

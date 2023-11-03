@@ -5,7 +5,7 @@ import { HeaderContainer } from './styles'
 import logo from '../../assets/afro_hair_logo.png'
 import { User, Heart, Handbag, List, MagnifyingGlass } from 'phosphor-react'
 import { DropdownMenu } from '../dropdownMenu/index.tsx'
-import LoginPortal from '../LoginPortal/index.tsx'
+import { LoginPortal } from '../LoginPortal/index.tsx'
 import { useLanguage } from '../../context/LanguageContext.tsx'
 import { useProducts } from '../../context/productContext'
 
