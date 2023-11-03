@@ -8,6 +8,7 @@ import { DropdownMenu } from '../dropdownMenu/index.tsx'
 import { LoginPortal } from '../LoginPortal/index.tsx'
 import { useLanguage } from '../../context/LanguageContext.tsx'
 import { useProducts } from '../../context/productContext'
+import { useLikedProducts } from '../../context/likedContext.tsx'
 
 export function Header() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -101,7 +102,9 @@ useEffect(() => {
   const { translation } = useLanguage()
 
   const { cart } = useProducts()
-  const itemCount = cart.reduce((total, item) => total + item.quantity, 0)
+  const shoppingCount = cart.reduce((total, item) => total + item.quantity, 0)
+  const {likedProducts} = useLikedProducts()
+  const likedCount = likedProducts.length
 
   return (
     <HeaderContainer>
@@ -130,14 +133,14 @@ useEffect(() => {
           onClick={handleClickHeart}
           title={translation.header.liked}>
           <Heart size={24} />
-          {itemCount > 0 && <span className="item-count">{itemCount}</span>}
+          {likedCount > 0 && <span className="liked-count">{likedCount}</span>}
         </button>
         <button
           onClick={handleShoppingCartClick}
           title={translation.header.shoppingcart}
         >
-          <Handbag size={24} />{' '}
-          {itemCount > 0 && <span className="item-count">{itemCount}</span>}
+          <Handbag size={24} />
+          {shoppingCount > 0 && <span className="shopping-count">{shoppingCount}</span>}
         </button>
       </div>
       <form onSubmit={handleSearchSubmit}>

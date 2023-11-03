@@ -21,6 +21,7 @@ export const LikedContainer = styled.div`
   }
   button {
     display: flex;
+    border: none;
     width: 120px;
     height: 30px;
     font-size: 16px;

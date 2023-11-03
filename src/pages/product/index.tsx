@@ -5,6 +5,8 @@ import { useProducts } from '../../context/productContext'
 import { useParams } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useNavigate } from 'react-router-dom'
+import { Heart } from 'phosphor-react';
+import { useLikedProducts } from '../../context/likedContext';
 
 
 const items: number[] = [...(new Array(5).keys() as any)]
@@ -15,6 +17,10 @@ export function Product() {
   const { id } = useParams()
   const index = id ? parseInt(id) - 1 : -1
   const navigate = useNavigate()
+  const { likedProducts, setLikedProducts } = useLikedProducts();
+  const [isLiked, setIsLiked] = useState(
+    likedProducts.some((likedProduct) => likedProduct.id === products[index].id)
+  );
 
   const onclickStar = (index: number) => {
     setActiveIndex((oldState) => (oldState === index ? undefined : index))
@@ -26,6 +32,20 @@ export function Product() {
     navigate('/')
   }
 
+  const handleClickHeart = () => {
+    if (index >= 0 && index < products.length) {
+      const product = products[index];
+
+      if (isLiked) {  
+        setLikedProducts(likedProducts.filter((likedProduct) => likedProduct.id !== product.id));
+      } else {
+        setLikedProducts([...likedProducts, product]);
+      }
+
+      setIsLiked(!isLiked); 
+    }
+  }
+
 
   return (
     <ProductContainer>
@@ -33,7 +53,14 @@ export function Product() {
         <img src={products[index].image} alt={products[index].name} />
       </div>
       <div className="descriptionProduct">
-        <h1>{products[index].description}      
+        <h1>{products[index].description}  
+        <button className="heartContainer" onClick={handleClickHeart}>
+  <Heart
+    size={30}
+    color={likedProducts.some((likedProduct) => likedProduct.id === products[index].id) ? "red" : "black"}
+    weight={likedProducts.some((likedProduct) => likedProduct.id === products[index].id) ? "fill" : "thin"}
+  />
+</button> 
         </h1>
         <div className="starContainer">
           {items.map((index) => (

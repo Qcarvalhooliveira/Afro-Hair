@@ -15,17 +15,16 @@ export const ProductContainer = styled.div`
     gap: 2rem;
     color: ${(props) => props.theme['button-background']};
 
-    
-  }
 
   .heartContainer {
-      display: flex;
-      border: none;
-      background: none;
-      align-items: flex-end;
-      justify-content: flex-end;
+    align-items: space-between;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+      
       
     }
+  }
 
   .descriptionProduct ul {
     list-style: none;

@@ -11,6 +11,7 @@ import { useProducts } from '../../context/productContext'
 import { Handbag } from 'phosphor-react'
 import { Link } from 'react-router-dom';
 
+
 export function Categorie() {
   const { products, addToCart } = useProducts()
   const location = useLocation()

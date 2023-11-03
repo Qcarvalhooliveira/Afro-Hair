@@ -10,6 +10,7 @@ import { Router } from './routes.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext.tsx'
 import { ProductsProvider } from './context/productContext.tsx'
+import { LikedProvider } from './context/likedContext.tsx'
 
 export function App() {
   const [theme, setTheme] = useState(BarbieTheme)
@@ -19,6 +20,7 @@ export function App() {
   return (
     <LanguageProvider>
       <ProductsProvider>
+        <LikedProvider>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <BrowserRouter>
@@ -31,6 +33,7 @@ export function App() {
             toggleBarbieTheme={toggleBarbieTheme}
           />
         </ThemeProvider>
+        </LikedProvider>
       </ProductsProvider>
     </LanguageProvider>
   )
