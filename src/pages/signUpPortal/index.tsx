@@ -16,7 +16,7 @@ export function SignUpPortal () {
   const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Sign up with:', name, email, password); // enviar name email password para banco de dados
-    
+
     navigate('/')
     
   };
@@ -25,6 +25,7 @@ export function SignUpPortal () {
 
   return (
     <SignUpPortalContainer>
+      <div className="signUp">
       <h2>{translation.SignUpPortal.signUp}</h2>
       <form onSubmit={handleSignUp}>
         <input
@@ -47,6 +48,7 @@ export function SignUpPortal () {
         />
         <button type="submit">{translation.SignUpPortal.signUp}</button>
       </form>
+      </div>
     </SignUpPortalContainer>
   );
 }

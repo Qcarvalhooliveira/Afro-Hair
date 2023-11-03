@@ -39,9 +39,14 @@ export const LoginPortalContainer = styled.div`
       padding: 10px;
       border: none;
       border-radius: 4px;
-      color: ${(props) => props.theme['element-background']};
       background: ${(props) => props.theme['button-background']};
+      color: ${(props) => props.theme['button-text']};      
       cursor: pointer;
+
+      &:hover {
+        
+        background: ${(props) => props.theme['element-background']};
+      }
     }
   }
 
@@ -56,6 +61,11 @@ export const LoginPortalContainer = styled.div`
       border: none;
       cursor: pointer;
       font-size: 14px;
+      
+      &:hover {
+        
+        color: ${(props) => props.theme['element-background']};
+      }
     }
   }
 `
