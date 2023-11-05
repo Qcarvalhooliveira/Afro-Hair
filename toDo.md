@@ -13,3 +13,11 @@
 [] fazer backend
 [] com o backend feito fazer a logica para salvar os produtos likados no banco de dados
 [x] fazer o titulo da pagina de likes poder ser traduzido
+
+# backend integração
+[x] chamada para criação de usuario
+[] chamada para o login
+[] chamada para deletar usuario (tem que estar logado?)
+[] chamada para postar like no banco de dados
+[] chamada para retirar like do banco de dados
+[] chamada para lista de produtos com like

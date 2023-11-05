@@ -10,13 +10,19 @@ import { useLanguage } from '../../context/LanguageContext.tsx'
 import { useProducts } from '../../context/productContext'
 import { useLikedProducts } from '../../context/likedContext.tsx'
 
+
 export function Header() {
   const [searchQuery, setSearchQuery] = useState('')
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [liked, setLiked] = useState(false)
- 
+  
+  
+//  function setIsLoginError (arg0: boolean) {
+//    throw new Error('Function not implemented.')
+//  }
+  
 
   const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value)
@@ -57,6 +63,41 @@ export function Header() {
   const handleUserIconClick = () => {
     setIsLoginOpen(true)
   }
+
+  
+
+  //  const handleCreateUserSubmit = (event: FormEvent) => {
+  //    event.preventDefault();
+  //    if (name.trim() !== '' && email.trim() !== '' && password.trim() !== '') {
+  //      // Chame a função createUser para criar o usuário
+  //      createUser({name, email, password});
+  //    } else {
+  //      // Exiba uma mensagem de erro se os campos estiverem vazios
+  //      // Por exemplo: setIsCreateUserError(true);
+  //    }
+  //  };
+
+
+
+//  const handleLogin = async (email, password) => {
+//    try {
+//      const response = await axios.post('/api/login', {
+//        email: email,
+//        password: password,
+//      });
+ //   
+ //     if (response.status === 200) {
+ //       // Login bem-sucedido
+ //       // Redirecione o usuário para a página apropriada ou atualize o estado do aplicativo
+ //       navigate('/');
+ //     } else {
+ //        setIsLoginError(true);
+ //     }
+ //   } catch (error) {
+ //     // Lide com erros de solicitação
+ //     console.error('Failed to make your login. Please try again.', error);
+ //   }
+ // };
 
   const handleClickHeart = () => {
     setLiked(!liked);
@@ -169,3 +210,4 @@ useEffect(() => {
     </HeaderContainer>
   )
 }
+

@@ -13,6 +13,7 @@
     "@phosphor-icons/react": "^2.0.10",
     "@stripe/stripe-js": "^2.1.10",
     "@types/stripe": "^8.0.417",
+    "axios": "^1.6.0",
     "bootstrap": "^5.3.2",
     "keen-slider": "^6.8.6",
     "react": "^18.2.0",
