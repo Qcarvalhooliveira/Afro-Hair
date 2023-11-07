@@ -49,6 +49,11 @@ export const SignUpPortalContainer = styled.div`
         background: ${(props) => props.theme['element-background']};
       }
     }
+    
   }
+  .error-message {
+      color: red;
+      font-weight: bolder;
+    }
 }
 `

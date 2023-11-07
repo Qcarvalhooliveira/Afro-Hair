@@ -20,7 +20,7 @@ export function SignUpPortal () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  const [errorMessage, setErrorMessage] = useState('');
   const createUser = async ({name, email, password}: CreateUserParams) => {
     try {
       const response = await axios.post('http://localhost:3333/users', {
@@ -28,15 +28,23 @@ export function SignUpPortal () {
         email: email,
         password: password,
       });
-      if (response.status === 200) {
+      if (response.status === 201) {
     console.log('User created successfully');
         navigate('/');
-      } else {
-        throw new Error('Failed to create user');
-      } 
-    } catch (error) {
-      console.error('Failed to create user. Please try again.', error);
-    } }
+      } } catch (error) {
+        if (axios.isAxiosError(error) && error.response) {
+          
+          if (error.response.status === 409) {
+            setErrorMessage('Email already exists, please try another one');
+          } else {
+            setErrorMessage('Error trying to create user, please try again');
+          }
+        } else {
+          setErrorMessage('Unknown error, please try again');
+        }
+        console.error('Failed to create user. Please try again.', error);
+      }
+    };
 
   const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,6 +64,7 @@ export function SignUpPortal () {
     <SignUpPortalContainer>
       <div className="signUp">
       <h2>{translation.SignUpPortal.signUp}</h2>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form onSubmit={handleSignUp}>
         <input
           type="name"

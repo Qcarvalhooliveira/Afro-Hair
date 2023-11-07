@@ -1,4 +1,4 @@
-// src/components/LoginPortal/styles.js
+
 import styled from 'styled-components'
 
 export const LoginPortalContainer = styled.div`

@@ -10,13 +10,12 @@
 [] fazer o form de dados do cliente enviar os dados para a pagina de sucess e renderizar eles de forma que fique claro que pegamos esses dados
 [] integrar com stripe para efetivar a compra
 [] fazer alguma logica para as estrelas terem utilidade (ou retirar as estrelas)
-[] fazer backend
-[] com o backend feito fazer a logica para salvar os produtos likados no banco de dados
+[x] fazer backend
 [x] fazer o titulo da pagina de likes poder ser traduzido
 
 # backend integração
 [x] chamada para criação de usuario
-[] chamada para o login
+[x] chamada para o login
 [] chamada para deletar usuario (tem que estar logado?)
 [] chamada para postar like no banco de dados
 [] chamada para retirar like do banco de dados

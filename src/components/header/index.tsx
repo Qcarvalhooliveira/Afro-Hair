@@ -17,11 +17,8 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [liked, setLiked] = useState(false)
+  const portalRoot = document.getElementById('portal-root');
   
-  
-//  function setIsLoginError (arg0: boolean) {
-//    throw new Error('Function not implemented.')
-//  }
   
 
   const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -60,44 +57,10 @@ export function Header() {
     }
   }
 
-  const handleUserIconClick = () => {
+  const handleUserIconClick = (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation()
     setIsLoginOpen(true)
   }
-
-  
-
-  //  const handleCreateUserSubmit = (event: FormEvent) => {
-  //    event.preventDefault();
-  //    if (name.trim() !== '' && email.trim() !== '' && password.trim() !== '') {
-  //      // Chame a função createUser para criar o usuário
-  //      createUser({name, email, password});
-  //    } else {
-  //      // Exiba uma mensagem de erro se os campos estiverem vazios
-  //      // Por exemplo: setIsCreateUserError(true);
-  //    }
-  //  };
-
-
-
-//  const handleLogin = async (email, password) => {
-//    try {
-//      const response = await axios.post('/api/login', {
-//        email: email,
-//        password: password,
-//      });
- //   
- //     if (response.status === 200) {
- //       // Login bem-sucedido
- //       // Redirecione o usuário para a página apropriada ou atualize o estado do aplicativo
- //       navigate('/');
- //     } else {
- //        setIsLoginError(true);
- //     }
- //   } catch (error) {
- //     // Lide com erros de solicitação
- //     console.error('Failed to make your login. Please try again.', error);
- //   }
- // };
 
   const handleClickHeart = () => {
     setLiked(!liked);
@@ -120,11 +83,12 @@ useEffect(() => {
       }
     }
 
-    if (isLoginOpen) {
-      
-      if (target && !target.closest('.login')) {
+    if (isLoginOpen && portalRoot && !portalRoot.contains(target)  ) {
+  
         setIsLoginOpen(false);
-      }
+      
+       
+      
     }
   };
 
@@ -133,12 +97,8 @@ useEffect(() => {
   return () => {
     document.removeEventListener('click', closePortalsOnOutsideClick);
   };
-}, [menuOpen, isLoginOpen]);
+}, [menuOpen, isLoginOpen, portalRoot]);
 
-
-
-
-  const portalRoot = document.getElementById('portal-root')
 
   const { translation } = useLanguage()
 
@@ -204,7 +164,7 @@ useEffect(() => {
       {isLoginOpen &&
         portalRoot !== null &&
         createPortal(
-          <LoginPortal onClose={() => setIsLoginOpen(false)} />,
+          <LoginPortal className='login-portal' onClose={() => setIsLoginOpen(false)} />,
           portalRoot,
         )}
     </HeaderContainer>
