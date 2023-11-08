@@ -16,7 +16,7 @@
 # backend integração
 [x] chamada para criação de usuario
 [x] chamada para o login
-[] chamada para deletar usuario (tem que estar logado?)
-[] chamada para postar like no banco de dados
-[] chamada para retirar like do banco de dados
-[] chamada para lista de produtos com like
+[x] chamada para deletar usuario (tem que estar logado?)
+[] chamada para postar like no banco de dados (tem que esta logado)
+[] chamada para retirar like do banco de dados (tem que esta logado)
+[] chamada para lista de produtos com like (tem que esta logado)

@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding: 2rem 10rem;
+  padding: 2rem 9rem;
   background: linear-gradient(
     to bottom,
     #da9fc3 0%,
@@ -44,10 +44,6 @@ export const HeaderContainer = styled.header`
     transition: 0.3s;
   }
 
-  &:hover {
-    color: ${(props) => props.theme['button-text']};
-  }
-
   img {
     border: none;
     border-radius: 20%;
@@ -55,8 +51,24 @@ export const HeaderContainer = styled.header`
 
   div {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    width: 8rem;
+
+    .icons{
+      display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+    }
+
+    .icon-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
     button {
       border: none;
@@ -76,34 +88,20 @@ export const HeaderContainer = styled.header`
         color: ${(props) => props.theme['button-text']};
       }
     }
-    .liked-count {
-      position: absolute;
-      top: 70px;
-      right: 195px;
-      color: ${(props) => props.theme['button-text']};
-      background: ${(props) => props.theme['button-background']};
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-    .shopping-count {
-      position: absolute;
-      top: 70px;
-      right: 155px;
-      color: ${(props) => props.theme['button-text']};
-      background: ${(props) => props.theme['button-background']};
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
+    .icon-count {
+  position: absolute;
+  top: -4px; 
+  right: -4px; 
+  color: ${(props) => props.theme['button-text']};
+  background: ${(props) => props.theme['button-background']};
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
   }
 
   form {
@@ -133,5 +131,48 @@ export const HeaderContainer = styled.header`
       transform: translateY(-50%);
       color: ${(props) => props.theme['button-background']};
     }
+  
   }
+  .user-greeting {
+    display: flex;
+    color: ${(props) => props.theme['button-background']};
+    width: 12rem;
+    
+
+   
+    span {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
+      width:100%;
+      gap: 0.5rem;
+      
+      .delete-account{
+      background:  ${(props) => props.theme['button-background']};
+        border-radius: 6px;
+        width: 100%;
+        color: ${(props) => props.theme['button-text']};
+        transition: 0.3s;
+
+        &:hover {
+      background: ${(props) => props.theme['button-text']};
+      color: ${(props) => props.theme['button-background']};
+    }
+      }
+      .logout{
+        background: ${(props) => props.theme['button-background']};
+        border-radius: 6px;
+        width: 100%;
+        color: ${(props) => props.theme['button-text']};
+        transition: 0.3s;
+
+        &:hover {
+      background: ${(props) => props.theme['button-text']};
+      color: ${(props) => props.theme['button-background']};
+    }
+      }
+    }
+
+    }
 `

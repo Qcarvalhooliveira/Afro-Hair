@@ -9,6 +9,7 @@ import { LoginPortal } from '../LoginPortal/index.tsx'
 import { useLanguage } from '../../context/LanguageContext.tsx'
 import { useProducts } from '../../context/productContext'
 import { useLikedProducts } from '../../context/likedContext.tsx'
+import axios from 'axios'
 
 
 export function Header() {
@@ -17,6 +18,8 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [liked, setLiked] = useState(false)
+  const [userName, setUserName] = useState('');
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const portalRoot = document.getElementById('portal-root');
   
   
@@ -40,7 +43,50 @@ export function Header() {
     }
   }
 
-  const isUserLoggedIn = true // Para fazer mais tarde, verificar o login
+  useEffect(() => {
+    // O token é normalmente o indicador de que um usuário está logado
+    const authToken = localStorage.getItem('authToken');
+    setIsUserLoggedIn(!!authToken); // !! converte o valor para booleano
+  
+    // Se o authToken existe, presumimos que o nome do usuário também deve existir.
+    if (authToken) {
+      const storedUserName = localStorage.getItem('userName');
+      if (storedUserName) {
+        setUserName(storedUserName);
+      }
+    }
+  }, []);
+
+  const handleDeleteAccount = async () => {
+    const userId = localStorage.getItem('userId');
+    const authToken = localStorage.getItem('authToken');
+
+    try {
+      const response = await axios.delete(`http://localhost:3333/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`
+        }
+      });
+      if (response.status === 202) {
+        alert('Conta deletada com sucesso.');
+        handleLogout(); // Chama a função de logout
+      }
+    } catch (error) {
+      alert('Erro ao deletar a conta.');
+      console.error(error);
+    }
+  }
+
+  const handleLogout = () => {
+    // Limpa o local storage e atualiza o estado do componente
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userName');
+    setIsUserLoggedIn(false);
+    setUserName('');
+    navigate('/'); // Redireciona para a página inicial
+  }
+
   const handleLogoClick = () => {
     navigate('/')
   }
@@ -85,10 +131,7 @@ useEffect(() => {
 
     if (isLoginOpen && portalRoot && !portalRoot.contains(target)  ) {
   
-        setIsLoginOpen(false);
-      
-       
-      
+        setIsLoginOpen(false); 
     }
   };
 
@@ -122,27 +165,39 @@ useEffect(() => {
         title={translation.header.home}
       >
         <img src={logo} alt="afrohairLogo" />
-      </button>
+      </button> 
       <div>
-        <button className='login'
+      {isUserLoggedIn && (
+        <div className="user-greeting">
+          <span>Hello, {userName}!</span>
+          <span>
+          <button className='delete-account' onClick={handleDeleteAccount}>Deletar Conta</button>
+          <button className='logout' onClick={handleLogout}>Desconectar</button>
+          </span>
+          
+        </div>
+      )}
+      <div className="icons">
+      <button className='login'
           title={translation.header.profile}
           onClick={handleUserIconClick}
         >
           <User size={24} />{' '}
         </button>
-        <button 
-          onClick={handleClickHeart}
-          title={translation.header.liked}>
-          <Heart size={24} />
-          {likedCount > 0 && <span className="liked-count">{likedCount}</span>}
-        </button>
-        <button
-          onClick={handleShoppingCartClick}
-          title={translation.header.shoppingcart}
-        >
-          <Handbag size={24} />
-          {shoppingCount > 0 && <span className="shopping-count">{shoppingCount}</span>}
-        </button>
+        <div className="icon-container">
+    <button onClick={handleClickHeart} title={translation.header.liked}>
+      <Heart size={24} />
+      {likedCount > 0 && <span className="icon-count">{likedCount}</span>}
+    </button>
+  </div>
+  <div className="icon-container">
+    <button onClick={handleShoppingCartClick} title={translation.header.shoppingcart}>
+      <Handbag size={24} />
+      {shoppingCount > 0 && <span className="icon-count">{shoppingCount}</span>}
+    </button>
+  </div>
+      </div>
+       
       </div>
       <form onSubmit={handleSearchSubmit}>
         <input
@@ -164,7 +219,10 @@ useEffect(() => {
       {isLoginOpen &&
         portalRoot !== null &&
         createPortal(
-          <LoginPortal className='login-portal' onClose={() => setIsLoginOpen(false)} />,
+          <LoginPortal className='login-portal' onClose={() => setIsLoginOpen(false)}  onLoginSuccess={(userName) => {
+            setUserName(userName);
+            setIsUserLoggedIn(true);
+          }} />,
           portalRoot,
         )}
     </HeaderContainer>
