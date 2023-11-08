@@ -34,7 +34,7 @@ export function Recommendations() {
             </Link>
             <ProductInfo>
               <ProductDescription>{product.description}</ProductDescription>
-              <ProductPrice>${product.price}</ProductPrice>
+              <ProductPrice>€{product.price}</ProductPrice>
               <button onClick={() => addToCart(product)}>
                 Add to cart{' '}
                 <span className="icon">
