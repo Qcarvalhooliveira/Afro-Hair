@@ -49,6 +49,10 @@ interface Product {
   category: string[]
 }
 
+export interface LikedProduct extends Product {
+  likedProductId: number;
+}
+
 export interface CartItem {
   id: number
   name: string
@@ -59,10 +63,14 @@ export interface CartItem {
 }
 interface ProductsContextType {
   products: Product[]
+  likedProducts: LikedProduct[];
+  setLikedProducts: (likedProducts: LikedProduct[]) => void
   cart: CartItem[]
   addToCart: (product: Product) => void
   removeItemFromCart: (itemId: number) => void
   updateCartItemQuantity: (productId: number, newQuantity: number) => void
+  getLikedProductsFromContext: (likedProductIds: number[]) => LikedProduct[]
+  removeFromLiked: (productId: number) => void;
   
 }
 type ProductsProviderProps = {
@@ -83,6 +91,7 @@ export const useProducts = () => {
 
 export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([])
+  const [likedProducts, setLikedProducts] = useState<LikedProduct[]>([]);
   const products: Product[] = [
     {
       id: 1,
@@ -649,8 +658,31 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
     setCart(updatedCart);
   };
 
+  const removeFromLiked = (productId: number | string) => {
+    const numericId = typeof productId === 'string' ? parseInt(productId, 10) : productId;
+  
+    setLikedProducts((prevLikedProducts) =>
+      prevLikedProducts.filter((product) => product.id !== numericId)
+    );
+  };
+  
+
+  const getLikedProductsFromContext = (likedProductIds: (string | number)[]): LikedProduct[] => {
+    const likedProducts = likedProductIds.map((likedProductId) => {
+      const numericId = typeof likedProductId === 'string' ? parseInt(likedProductId, 10) : likedProductId;
+      const product = products.find((product) => product.id === numericId);
+      if (!product) {
+       
+      }
+      return product;
+    }).filter((product): product is LikedProduct => product !== undefined) as LikedProduct[];
+  
+    return likedProducts;
+  };
+  
+
   return (
-    <ProductsContext.Provider value={{ products, cart, addToCart, removeItemFromCart, updateCartItemQuantity  }}>
+    <ProductsContext.Provider value={{ products, cart, addToCart, removeItemFromCart, updateCartItemQuantity, getLikedProductsFromContext, likedProducts, setLikedProducts, removeFromLiked,  }}>
       {children}
     </ProductsContext.Provider>
   )

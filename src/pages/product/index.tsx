@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ProductContainer } from './styles'
 import Star from '../../components/star/index.tsx'
 import { useProducts } from '../../context/productContext'
@@ -6,7 +6,8 @@ import { useParams } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useNavigate } from 'react-router-dom'
 import { Heart } from 'phosphor-react';
-import { useLikedProducts } from '../../context/likedContext';
+
+import axios from 'axios'
 
 
 const items: number[] = [...(new Array(5).keys() as any)]
@@ -17,10 +18,13 @@ export function Product() {
   const { id } = useParams()
   const index = id ? parseInt(id) - 1 : -1
   const navigate = useNavigate()
-  const { likedProducts, setLikedProducts } = useLikedProducts();
-  const [isLiked, setIsLiked] = useState(
-    likedProducts.some((likedProduct) => likedProduct.id === products[index].id)
-  );
+ 
+  const [isLiked, setIsLiked] = useState(false)
+  useEffect(()=>{
+    setIsLiked(products[index]?.isSelected || false)
+    
+  },[products, index])
+   
 
   const onclickStar = (index: number) => {
     setActiveIndex((oldState) => (oldState === index ? undefined : index))
@@ -32,17 +36,40 @@ export function Product() {
     navigate('/')
   }
 
-  const handleClickHeart = () => {
+  const handleClickHeart = async () => {
     if (index >= 0 && index < products.length) {
       const product = products[index];
+      const userId = localStorage.getItem('userId');
+      const authToken = localStorage.getItem('authToken');
 
-      if (isLiked) {  
-        setLikedProducts(likedProducts.filter((likedProduct) => likedProduct.id !== product.id));
-      } else {
-        setLikedProducts([...likedProducts, product]);
+      if (!userId || !authToken) {
+        console.error('User ID or auth token not available.');
+        return;
       }
 
-      setIsLiked(!isLiked); 
+      try {
+        if (isLiked) {  
+        await axios.delete(`http://localhost:3333/likes/${userId}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+          },
+          data: {
+            productLiked: product.id
+          }
+        });
+        } else {
+         await axios.post(`http://localhost:3333/likes/${userId}`,{ productLiked: String(product.id)}, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+          },
+         })
+        }
+        setIsLiked(!isLiked); 
+      } catch (error) {
+        console.error('Error updating like', error);
+      }    
     }
   }
 
@@ -57,8 +84,8 @@ export function Product() {
         <button className="heartContainer" onClick={handleClickHeart}>
   <Heart
     size={30}
-    color={likedProducts.some((likedProduct) => likedProduct.id === products[index].id) ? "red" : "black"}
-    weight={likedProducts.some((likedProduct) => likedProduct.id === products[index].id) ? "fill" : "thin"}
+    color={isLiked ? "red" : "black"}
+    weight={isLiked ? "fill" : "thin"}
   />
 </button> 
         </h1>

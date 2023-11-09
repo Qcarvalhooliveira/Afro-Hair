@@ -2,7 +2,7 @@ export const BarbieTheme = {
   white: '#fff',
   // base
   'body-background': '#FBE9F5',
-  'element-background': '#ED609B',
+  'element-background': '#E94C8E',
 
   'button-background': '#352F31',
   'button-text': '#F89EC4',
