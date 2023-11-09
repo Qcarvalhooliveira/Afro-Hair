@@ -171,8 +171,8 @@ useEffect(() => {
         <div className="user-greeting">
           <span>Hello, {userName}!</span>
           <span>
-          <button className='delete-account' onClick={handleDeleteAccount}>Deletar Conta</button>
-          <button className='logout' onClick={handleLogout}>Desconectar</button>
+          <button className='delete-account' onClick={handleDeleteAccount}>Delete account</button>
+          <button className='logout' onClick={handleLogout}>Disconnect</button>
           </span>
           
         </div>
