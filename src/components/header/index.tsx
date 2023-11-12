@@ -111,8 +111,6 @@ export function Header() {
     setLiked(!liked);
   
     if (!liked) {
-      // Aqui você pode adicionar lógica para adicionar o produto aos "liked" (talvez usando Redux ou outro sistema de gerenciamento de estado).
-      // Por enquanto, vou apenas redirecionar o usuário para a página "liked" como um exemplo.
       navigate('/liked');
     }
   }

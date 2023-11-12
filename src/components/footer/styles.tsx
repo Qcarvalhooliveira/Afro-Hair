@@ -5,12 +5,10 @@ export const FooterContainer = styled.footer`
   align-items: flex-start;
   justify-content: space-between;
   padding: 2rem 10rem;
-  background: linear-gradient(
-    to bottom,
-    #da9fc3 0%,
-    ${(props) => props.theme['element-background']}
-  );
-  border-radius: 20px 20px 0 0;
+  
+  background: linear-gradient(180deg, #8d56e5, ${(props) => props.theme['element-background']}), url(Imagens/bg.jpg);
+  background-size: 100% 100%;
+  background-blend-mode: screen;
 `
 
 export const Language = styled.section`

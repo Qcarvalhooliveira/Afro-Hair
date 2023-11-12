@@ -1,9 +1,4 @@
-import Stripe from 'stripe'
-import { stripeTest } from '../pages/home/index'
+// stripeConfig.ts
+import { loadStripe } from '@stripe/stripe-js';
 
-export const stripe = new Stripe(stripeTest.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-08-16',
-  appInfo: {
-    name: 'Afro Hair',
-  },
-})
+export const stripePromise = loadStripe('pk_test_51NtTIVHp9Lt0yzTHfwZtXQ3YGppcdzAKexvo5n3G2kkMc3Lm5QgzmEdhuE5D0N4pznEr9waIAgYJgfjyQg9PuAPW00Za3iBKbu');
