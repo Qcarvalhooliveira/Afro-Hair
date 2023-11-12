@@ -49,8 +49,6 @@ import {
   }, [getLikedProductsFromContext, setLikedProducts])
 
 
-  console.log('Products:', products);
-  console.log('Liked Products from Context:', likedProductsFromContext);
     
     return (
       <LikedContainer>

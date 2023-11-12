@@ -18,6 +18,6 @@
 [x] chamada para o login
 [x] chamada para deletar usuario (tem que estar logado?)
 [x] chamada para postar like no banco de dados (tem que esta logado)
-[] chamada para retirar like do banco de dados (tem que esta logado) (acho que essa ainda não esta fucnionando)
+[X] chamada para retirar like do banco de dados (tem que esta logado) 
 [x] chamada para lista de produtos com like (tem que esta logado)
 [] resolver bug de quando manda like para carrinho vai imagem do banner

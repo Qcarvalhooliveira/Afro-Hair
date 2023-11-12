@@ -1,7 +1,7 @@
 ![Afro Hair](https://raw.githubusercontent.com/Qcarvalhooliveira/Qcarvalhooliveira.github.io/master/images/Banner-afrohair.png)
 
 
-# PORTIFOLIO PROJECT AFRO HAIR
+# PORTFOLIO PROJECT AFRO HAIR
 
 ## Afro Hair - Front-end
 
@@ -29,6 +29,7 @@ fotos do site
 ### **1.Clone the repository:**
 ```
 git clone https://github.com/Qcarvalhooliveira/Afro-Hair.git
+cd Afro-Hair
 
 ```
 ### **2.Install dependencies:**
