@@ -8,7 +8,6 @@ import { DropdownMenu } from '../dropdownMenu/index.tsx'
 import { LoginPortal } from '../LoginPortal/index.tsx'
 import { useLanguage } from '../../context/LanguageContext.tsx'
 import { useProducts } from '../../context/productContext'
-import { useLikedProducts } from '../../context/likedContext.tsx'
 import axios from 'axios'
 
 
@@ -147,7 +146,7 @@ useEffect(() => {
 
   const { cart } = useProducts()
   const shoppingCount = cart.reduce((total, item) => total + item.quantity, 0)
-  const {likedProducts} = useLikedProducts()
+  const {likedProducts} = useProducts()
   const likedCount = likedProducts.length
 
   return (

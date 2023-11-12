@@ -32,7 +32,8 @@ import product30 from '../../Imagens/Shampoo/Santo_black.png'
 import product31 from '../../Imagens/Shampoo/coco.png'
 import product32 from '../../Imagens/Shampoo/meus_cachos_de_cinema.png'
 import product33 from '../../Imagens/Shampoo/meus_cachos.png'
-// import {stripe} from '../lib/stripe'
+import axios from 'axios'
+
 
 interface Product {
   id: number
@@ -71,8 +72,8 @@ interface ProductsContextType {
   updateCartItemQuantity: (productId: number, newQuantity: number) => void
   getLikedProductsFromContext: (likedProductIds: number[]) => LikedProduct[]
   removeFromLiked: (productId: number) => void;
-  
 }
+
 type ProductsProviderProps = {
   children: ReactNode
 }
@@ -628,6 +629,8 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       price: 9.99,
     },
   ]
+  
+ 
 
   const addToCart = (product: Product) => {
     const productIndex = cart.findIndex((item) => item.id === product.id)
@@ -658,13 +661,34 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
     setCart(updatedCart);
   };
 
-  const removeFromLiked = (productId: number | string) => {
+  const removeFromLiked = async (productId: number | string) => {
     const numericId = typeof productId === 'string' ? parseInt(productId, 10) : productId;
   
-    setLikedProducts((prevLikedProducts) =>
-      prevLikedProducts.filter((product) => product.id !== numericId)
-    );
+    const userId = localStorage.getItem('userId');
+    const authToken = localStorage.getItem('authToken');
+  
+    if (userId && authToken) {
+      try {
+        const productLiked = String(numericId);
+        await axios.delete(`http://localhost:3333/likes/${userId}`, {
+          headers: {
+            'Authorization': `Bearer ${authToken}`,
+          },
+          data: {
+            productLiked
+          },
+        });
+  
+        
+        setLikedProducts((prevLikedProducts) =>
+          prevLikedProducts.filter((product) => product.id !== numericId)
+        );
+      } catch (error) {
+        console.error('Error removing like', error);
+      }
+    }
   };
+  
   
 
   const getLikedProductsFromContext = (likedProductIds: (string | number)[]): LikedProduct[] => {
@@ -672,7 +696,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
       const numericId = typeof likedProductId === 'string' ? parseInt(likedProductId, 10) : likedProductId;
       const product = products.find((product) => product.id === numericId);
       if (!product) {
-       
+        console.error(`Product with id ${numericId} not found.`);
       }
       return product;
     }).filter((product): product is LikedProduct => product !== undefined) as LikedProduct[];
@@ -682,7 +706,7 @@ export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
   
 
   return (
-    <ProductsContext.Provider value={{ products, cart, addToCart, removeItemFromCart, updateCartItemQuantity, getLikedProductsFromContext, likedProducts, setLikedProducts, removeFromLiked,  }}>
+    <ProductsContext.Provider value={{ products, cart, addToCart, removeItemFromCart, updateCartItemQuantity, getLikedProductsFromContext, likedProducts, setLikedProducts, removeFromLiked }}>
       {children}
     </ProductsContext.Provider>
   )
