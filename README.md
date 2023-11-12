@@ -1,7 +1,7 @@
 ![Afro Hair](https://raw.githubusercontent.com/Qcarvalhooliveira/Qcarvalhooliveira.github.io/master/images/Banner-afrohair.png)
 
 
-# ** PORTIFOLIO PROJECT AFRO HAIR**
+# PORTIFOLIO PROJECT AFRO HAIR
 
 ## Afro Hair - Front-end
 
@@ -42,12 +42,14 @@ npm run dev
 ```
 The application will be available at http://localhost:3000.
 
+
 ## Technologies Used
 
 ### **Front-End**
 
-React with TypeScript: A powerful JavaScript library for building user interfaces, using TypeScript to enhance code quality and maintainability.
-HTML and CSS: Standard web technologies for structuring content and styling the user interface.
+- **React with TypeScript:** A powerful JavaScript library for building user interfaces, using TypeScript to enhance code quality and maintainability.
+
+- **HTML and CSS:** Standard web technologies for structuring content and styling the user interface.
 
 ### **Back-End**
 
@@ -56,8 +58,8 @@ HTML and CSS: Standard web technologies for structuring content and styling the 
 - **SQLite:** A lightweight, serverless, and self-contained relational database management system, ideal for development and small-scale applications.
 
 
-### Author
-  Queise Carvalho de Oliveira
+## Author
+  **Queise Carvalho de Oliveira**
 - [Linkedin](https://www.linkedin.com/in/queise-carvalho-de-oliveira-50359749/)
 - [GitHub](https://github.com/Qcarvalhooliveira)
 - [Twitter](https://twitter.com/QueiseS2)
