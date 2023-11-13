@@ -8,8 +8,9 @@
 [x] fazer pagina que mostre os likes do usuario
 [] fazer uma pagina de sucess depois da compra estar efetivada
 [] fazer o form de dados do cliente enviar os dados para a pagina de sucess e renderizar eles de forma que fique claro que pegamos esses dados
-[] integrar com stripe para efetivar a compra
-[] fazer alguma logica para as estrelas terem utilidade (ou retirar as estrelas)
+[x] integrar com paypal para efetivar a compra
+[] fazer o paypal receber os itens corretos e não o hardcode que esta
+[não vamos fazer] fazer alguma logica para as estrelas terem utilidade (ou retirar as estrelas)
 [x] fazer backend
 [x] fazer o titulo da pagina de likes poder ser traduzido
 

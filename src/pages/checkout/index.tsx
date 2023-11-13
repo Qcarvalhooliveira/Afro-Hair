@@ -3,16 +3,14 @@ import { CheckoutContainer } from './styles'
 import { Counter } from '../../components/counter'
 import { useLanguage } from '../../context/LanguageContext'
 import { useProducts } from '../../context/productContext'
-import { useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-
+import {Paypal} from '../../components/paypal/paypal'
 
 
 export function Checkout() {
   const { translation } = useLanguage()
   const { cart, removeItemFromCart, updateCartItemQuantity } = useProducts();
   
-  
+
   const calculateTotalOfItens = () => {
     let total = 0
     for (const item of cart) {
@@ -30,34 +28,6 @@ export function Checkout() {
     }
     return total
   }
-
-  const [loading, setLoading] = useState(false);
-
-  const handleConfirmClick = async () => {
-    setLoading(true);
-  
-    try { 
-      const stripe = await loadStripe("pk_test_51NtTIVHp9Lt0yzTHfwZtXQ3YGppcdzAKexvo5n3G2kkMc3Lm5QgzmEdhuE5D0N4pznEr9waIAgYJgfjyQg9PuAPW00Za3iBKbu");
-      
-      
-       await stripe?.redirectToCheckout({
-        lineItems: cart.map((item) => ({
-          price: item.price?.toString(), 
-          quantity: item.quantity,
-        })),
-        mode: 'payment',
-        successUrl: 'http://localhost:5173/success',
-        cancelUrl: 'https://seusite.com/cancel',
-      });
-  
-      
-    } catch (error) {
-      console.error('Erro ao criar sessão de pagamento:', error);
-  
-    } finally {
-      setLoading(false);
-    }
-  };
   return (
     <CheckoutContainer>
       <div className="userPaymentAndDeliveryInfos">
@@ -195,14 +165,9 @@ export function Checkout() {
               </h1>
           </div>
 
-          <button
-        type="button"
-        className="formValidation"
-        onClick={handleConfirmClick}
-        disabled={loading}
-      >
-        {loading ? 'Aguarde...' : translation.checkout.confirm}
-      </button>
+          
+            <Paypal/>
+          
         </div>
       </div>
     </CheckoutContainer>
