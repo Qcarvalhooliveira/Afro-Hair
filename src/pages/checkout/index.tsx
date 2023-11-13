@@ -4,6 +4,7 @@ import { Counter } from '../../components/counter'
 import { useLanguage } from '../../context/LanguageContext'
 import { useProducts } from '../../context/productContext'
 import {Paypal} from '../../components/paypal/paypal'
+import {useState} from 'react'
 
 
 export function Checkout() {
@@ -28,6 +29,16 @@ export function Checkout() {
     }
     return total
   }
+
+  const [userInfo, setUserInfo] = useState({
+    rua: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
+    cidade: '',
+    cep:"",
+  })
+
   return (
     <CheckoutContainer>
       <div className="userPaymentAndDeliveryInfos">
@@ -52,10 +63,10 @@ export function Checkout() {
               minLength={1}
               maxLength={99999999}
               title={translation.checkout.validCep}
-              //  value={userInfo.cep}
-              // onChange={(e) =>
-              //  setUserInfo({ ...userInfo, cep: e.target.value })
-              // }
+               value={userInfo.cep}
+              onChange={(e) =>
+               setUserInfo({ ...userInfo, cep: e.target.value })
+              }
             />
             <input
               className="rua"
@@ -66,10 +77,10 @@ export function Checkout() {
               maxLength={300}
               title={translation.checkout.validStreet}
               required
-              //   value={userInfo.rua}
-              //  onChange={(e) =>
-              //    setUserInfo({ ...userInfo, rua: e.target.value })
-              //  }
+                 value={userInfo.rua}
+                onChange={(e) =>
+                  setUserInfo({ ...userInfo, rua: e.target.value })
+                }
             />
             <span>
               <input
@@ -81,10 +92,10 @@ export function Checkout() {
                 min={1}
                 max={999}
                 title={translation.checkout.validNumber}
-                //   value={userInfo.numero}
-                //   onChange={(e) =>
-                //      setUserInfo({ ...userInfo, numero: e.target.value })
-                //   }
+                  value={userInfo.numero}
+                 onChange={(e) =>
+                    setUserInfo({ ...userInfo, numero: e.target.value })
+                 }
               />
               <div className="complementoEOpcional">
                 <input
@@ -92,10 +103,10 @@ export function Checkout() {
                   type="text"
                   name={translation.checkout.complement}
                   placeholder={translation.checkout.complement}
-                  //    value={userInfo.complemento}
-                  //    onChange={(e) =>
-                  //      setUserInfo({ ...userInfo, complemento: e.target.value })
-                  //    }
+                      value={userInfo.complemento}
+                      onChange={(e) =>
+                        setUserInfo({ ...userInfo, complemento: e.target.value })
+                      }
                 />
               </div>
             </span>
@@ -109,10 +120,10 @@ export function Checkout() {
                 minLength={2}
                 maxLength={100}
                 title={translation.checkout.validNeighborhood}
-                //  value={userInfo.bairro}
-                //   onChange={(e) =>
-                //     setUserInfo({ ...userInfo, bairro: e.target.value })
-                //   }
+                  value={userInfo.bairro}
+                   onChange={(e) =>
+                     setUserInfo({ ...userInfo, bairro: e.target.value })
+                   }
               />
               <input
                 className="cidade"
@@ -123,10 +134,10 @@ export function Checkout() {
                 minLength={2}
                 maxLength={100}
                 title={translation.checkout.validCity}
-                //    value={userInfo.cidade}
-                //    onChange={(e) =>
-                //      setUserInfo({ ...userInfo, cidade: e.target.value })
-                //    }
+                    value={userInfo.cidade}
+                    onChange={(e) =>
+                      setUserInfo({ ...userInfo, cidade: e.target.value })
+                    }
               />
             </span>
           </form>
@@ -166,7 +177,7 @@ export function Checkout() {
           </div>
 
           
-            <Paypal/>
+            <Paypal userInfo={userInfo}/>
           
         </div>
       </div>

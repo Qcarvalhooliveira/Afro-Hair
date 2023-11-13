@@ -50,7 +50,7 @@ export const StyledSuccess = styled.div`
       width: 33rem;
       height: 17rem;
 
-      background: linear-gradient(to right, #dbac2c, #8047f8);
+      background: linear-gradient(to right,  #8d56e5, ${(props) => props.theme['element-background']});
       border-radius: 6px 36px 6px 36px;
 
       .deliveryRecap {

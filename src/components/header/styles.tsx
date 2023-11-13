@@ -10,7 +10,10 @@ export const HeaderContainer = styled.header`
   background: linear-gradient(180deg, #8d56e5, ${(props) => props.theme['element-background']}), url(Imagens/bg.jpg);
   background-size: 100% 100%;
   background-blend-mode: screen;
-
+  box-shadow: 5px 5px 10px #4f4b4b;
+  border-radius: 0 0 20px 20px;
+  
+  
   .menu {
     border: none;
     display: flex;
@@ -32,6 +35,9 @@ export const HeaderContainer = styled.header`
       color: ${(props) => props.theme['button-background']};
     }
   }
+
+
+
 
   .Home {
     display: flex;
@@ -89,7 +95,7 @@ export const HeaderContainer = styled.header`
     .icon-count {
   position: absolute;
   top: -4px; 
-  right: -4px; 
+  right: -2px; 
   color: ${(props) => props.theme['button-text']};
   background: ${(props) => props.theme['button-background']};
   border-radius: 50%;

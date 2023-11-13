@@ -5,13 +5,13 @@ import { useLocation } from 'react-router-dom'
 
 export function Success() {
   const location = useLocation()
-  const { userInfo } = location.state
+  const { userInfo, totalPaid } = location.state
 
   return (
     <StyledSuccess>
       <div className="successTitle">
         <h1>Uhu! Pedido confirmado</h1>
-        <p>Agora é so aguardar que logo o café chegara até você</p>
+        <p>Agora é so aguardar que logo o pedido chegara até você</p>
       </div>
       <div className="recapImgContainer">
         <div className="deliveryRecapBorder">
@@ -21,12 +21,12 @@ export function Success() {
                 <MapPin />
               </IconStyle>
               <p>
-                Entrega em
+                Entrega em rua <br />
                 <strong>
-                  Rua {userInfo.rua}, {userInfo.numero}
+                {userInfo.numero}, {userInfo.rua}
                 </strong>
                 <br />
-                {userInfo.bairro} - {userInfo.cidade}, {userInfo.uf}
+                {userInfo.bairro} - {userInfo.cidade}
               </p>
             </div>
             <div className="deliveryRecapInfo">
@@ -37,7 +37,7 @@ export function Success() {
                 Previsão de entrega
                 <strong>
                   <br />
-                  20 min - 30 min
+                  7 - 15 dias
                 </strong>
               </p>
             </div>
@@ -49,7 +49,7 @@ export function Success() {
                 <p>
                   Valor pago
                   <br />
-                  <strong>{userInfo.pagamento}</strong>
+                  <strong>{totalPaid}</strong>
                 </p>
               </span>
             </div>

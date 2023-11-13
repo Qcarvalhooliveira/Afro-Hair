@@ -9,8 +9,8 @@ export const FooterContainer = styled.footer`
   background: linear-gradient(180deg, #8d56e5, ${(props) => props.theme['element-background']}), url(Imagens/bg.jpg);
   background-size: 100% 100%;
   background-blend-mode: screen;
-`
 
+`
 export const Language = styled.section`
   display: flex;
   flex-direction: column;
@@ -213,4 +213,5 @@ export const Mode = styled.section`
       }
     }
   }
+
 `
